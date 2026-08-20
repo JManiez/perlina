@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perlina By L — Institut de beauté · La Grande-Motte</title>
+<meta name="description" content="Perlina By L, votre institut de beauté à La Grande-Motte. Découvrez la technologie INDIBA® Deep Beauty et révélez votre beauté naturelle. Soins visage, corps, regard et rituels bien-être.">
+<meta property="og:title" content="Perlina By L — Institut de beauté · La Grande-Motte">
+<meta property="og:description" content="Venez découvrir la technologie INDIBA® Deep Beauty et révéler votre beauté naturelle.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='13' fill='none' stroke='%23c6a24f' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23e8d5a3'/%3E%3Ccircle cx='13.5' cy='13.5' r='2' fill='%23fffdf8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ivoire:#f7f2e7;
+  --ivoire-2:#efe7d5;
+  --creme:#fbf8f0;
+  --or:#c6a24f;
+  --or-fonce:#a37f2e;
+  --or-clair:#e8d5a3;
+  --brun:#7a6248;
+  --brun-fonce:#5c4931;
+  --blanc:#fffdf8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Jost',sans-serif;
+  font-weight:300;
+  color:var(--brun);
+  background:var(--ivoire);
+  background-image:
+    radial-gradient(ellipse 80% 50% at 20% 10%, rgba(255,255,255,.7), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 85% 80%, rgba(232,213,163,.25), transparent 65%),
+    radial-gradient(ellipse 60% 40% at 60% 40%, rgba(255,255,255,.5), transparent 70%);
+  background-attachment:fixed;
+  line-height:1.7;
+}
+h1,h2,h3{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--brun-fonce)}
+.script{font-family:'Great Vibes',cursive;font-weight:400;color:var(--or-fonce)}
+
+/* ===== NAV ===== */
+header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(251,248,240,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid rgba(198,162,79,.35);
+}
+.nav-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:.6rem 2rem}
+.logo{display:flex;flex-direction:column;line-height:1;cursor:pointer}
+.logo .script{font-size:2.1rem;background:linear-gradient(120deg,#a37f2e,#e3c877 45%,#a37f2e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.logo small{font-family:'Cormorant Garamond',serif;letter-spacing:.35em;font-size:.6rem;color:var(--brun);text-transform:uppercase;margin-top:.15rem;text-align:center}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav a{
+  text-decoration:none;color:var(--brun);font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;
+  padding:.4rem 0;border-bottom:1px solid transparent;transition:.3s;cursor:pointer;
+}
+nav a:hover,nav a.active{color:var(--or-fonce);border-bottom-color:var(--or)}
+.nav-cta{
+  background:linear-gradient(120deg,var(--or-fonce),var(--or) 50%,var(--or-fonce));
+  color:#fff!important;padding:.55rem 1.4rem!important;border-radius:30px;border:none!important;
+  box-shadow:0 3px 12px rgba(163,127,46,.35);
+}
+.nav-cta:hover{filter:brightness(1.08)}
+.burger{display:none;background:none;border:none;font-size:1.6rem;color:var(--or-fonce);cursor:pointer}
+
+/* ===== PAGES ===== */
+.page{display:none;animation:fade .5s ease}
+.page.visible{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.container{max-width:1100px;margin:0 auto;padding:0 2rem}
+section{padding:4.5rem 0}
+
+/* ===== ORNEMENTS ===== */
+.orn{display:flex;align-items:center;justify-content:center;gap:1rem;margin:1.2rem 0}
+.orn::before,.orn::after{content:"";height:1px;width:90px;background:linear-gradient(90deg,transparent,var(--or))}
+.orn::after{background:linear-gradient(90deg,var(--or),transparent)}
+.pearl{
+  width:14px;height:14px;border-radius:50%;
+  background:radial-gradient(circle at 32% 28%, #fff 0%, #f3ecd9 35%, #d9c58e 75%, #b99a55 100%);
+  box-shadow:0 2px 5px rgba(122,98,72,.35), inset -1px -2px 3px rgba(163,127,46,.4);
+}
+.pearl.sm{width:9px;height:9px}
+.eyebrow{letter-spacing:.4em;text-transform:uppercase;font-size:.75rem;color:var(--or-fonce);text-align:center}
+
+/* ===== HERO ===== */
+.hero{min-height:78vh;display:flex;align-items:center;position:relative;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;max-width:1100px;margin:0 auto;padding:2rem}
+.hero .script.small{font-size:1.9rem;color:var(--brun)}
+.hero h1{font-size:clamp(3.4rem,7vw,5.2rem);line-height:1.05;margin:.4rem 0 .6rem}
+.hero h1 .script{font-size:clamp(4.2rem,9vw,6.5rem);display:block;background:linear-gradient(120deg,#a37f2e,#e8d5a3 40%,#c6a24f 60%,#a37f2e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero .byl{font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.25em;color:var(--brun);font-size:1rem}
+.hero p.lead{font-size:1.1rem;max-width:32rem;margin:1.4rem 0 2rem}
+.btn{
+  display:inline-block;text-decoration:none;cursor:pointer;font-family:'Jost',sans-serif;
+  letter-spacing:.2em;text-transform:uppercase;font-size:.8rem;
+  padding:.9rem 2.2rem;border-radius:32px;transition:.3s;
+}
+.btn-or{background:linear-gradient(120deg,var(--or-fonce),var(--or) 50%,var(--or-fonce));color:#fff;border:none;box-shadow:0 4px 16px rgba(163,127,46,.4)}
+.btn-or:hover{transform:translateY(-2px);filter:brightness(1.07)}
+.btn-ghost{border:1px solid var(--or);color:var(--or-fonce);margin-left:.8rem;background:transparent}
+.btn-ghost:hover{background:rgba(198,162,79,.12)}
+
+/* silhouette dorée — animée */
+.silhouette{position:relative;display:flex;justify-content:center}
+.silhouette svg{width:100%;max-width:400px;filter:drop-shadow(0 6px 18px rgba(163,127,46,.25));overflow:visible}
+
+/* tracé qui se dessine au chargement */
+.draw{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 2.6s ease forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.d1{animation-delay:.2s}.d2{animation-delay:.7s}.d3{animation-delay:1.1s}.d4{animation-delay:1.5s}.d5{animation-delay:1.9s}
+
+/* cercle : dessin puis respiration lente */
+.ring{transform-origin:150px 170px;stroke-dasharray:1;stroke-dashoffset:1;
+  animation:draw 3s .1s ease forwards, breathe 7s 3.2s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
+
+/* perles : apparition puis flottement perpétuel */
+.pf,.leaf{transform-box:fill-box;transform-origin:center}
+.pf{opacity:0;animation:pop .8s ease forwards, floatp 5s ease-in-out infinite}
+@keyframes pop{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@keyframes floatp{0%,100%{translate:0 0}50%{translate:0 -9px}}
+.pf1{animation-delay:1.6s,2.4s}.pf2{animation-delay:1.9s,2.9s;animation-duration:.8s,6s}
+.pf3{animation-delay:2.1s,2.6s;animation-duration:.8s,4.5s}.pf4{animation-delay:2.3s,3.2s;animation-duration:.8s,5.5s}
+.pf5{animation-delay:2.5s,2.2s;animation-duration:.8s,4s}.pf6{animation-delay:2.7s,3.6s;animation-duration:.8s,6.5s}
+
+/* feuilles : léger balancement */
+.leaf{opacity:0;transform-origin:center;animation:pop 1s 2.2s ease forwards, sway 4.5s 3.2s ease-in-out infinite}
+@keyframes sway{0%,100%{rotate:0deg}50%{rotate:6deg}}
+
+/* scintillement doux de l'ensemble */
+.silhouette .glow{animation:glow 6s ease-in-out infinite}
+@keyframes glow{0%,100%{opacity:1}50%{opacity:.82}}
+@media (prefers-reduced-motion: reduce){
+  .draw,.ring,.pf,.leaf,.glow{animation:none;stroke-dashoffset:0;opacity:1}
+}
+
+/* ===== BANDEAU INDIBA ===== */
+.indiba{
+  background:linear-gradient(120deg,rgba(198,162,79,.14),rgba(232,213,163,.28),rgba(198,162,79,.14));
+  border-top:1px solid rgba(198,162,79,.4);border-bottom:1px solid rgba(198,162,79,.4);
+  text-align:center;padding:3rem 2rem;
+}
+.indiba .script{font-size:1.8rem}
+.indiba-logo{font-family:'Jost',sans-serif;font-weight:500;font-size:2.2rem;letter-spacing:.25em;color:#b06a2a;margin:.3rem 0 0}
+.indiba-logo sup{font-size:.7rem}
+.indiba-sub{letter-spacing:.55em;font-size:.75rem;color:var(--brun);text-transform:uppercase}
+
+/* ===== CARDS ===== */
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:2.5rem}
+@media(max-width:1020px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cards{grid-template-columns:1fr}}
+.cards .card:nth-child(1){animation-delay:.05s}
+.cards .card:nth-child(2){animation-delay:.15s}
+.cards .card:nth-child(3){animation-delay:.25s}
+.cards .card:nth-child(4){animation-delay:.35s}
+.card{
+  position:relative;overflow:hidden;cursor:pointer;
+  opacity:0;animation:fade .7s ease forwards;
+  background:linear-gradient(170deg,rgba(255,253,248,.95),rgba(247,240,224,.9));
+  border:1px solid rgba(198,162,79,.35);
+  border-radius:16px;padding:2.4rem 1.5rem 2rem;text-align:center;
+  box-shadow:0 8px 26px rgba(122,98,72,.08);
+  transition:transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+  display:flex;flex-direction:column;align-items:center;
+}
+.card::before{ /* liseré doré supérieur */
+  content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:60%;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--or),transparent);
+  transition:width .4s ease;
+}
+.card::after{ /* halo nacré au survol */
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity .4s;
+  background:radial-gradient(ellipse 90% 55% at 50% -10%, rgba(232,213,163,.45), transparent 70%);
+}
+.card:hover{transform:translateY(-7px);box-shadow:0 18px 40px rgba(122,98,72,.18);border-color:var(--or)}
+.card:hover::before{width:92%}
+.card:hover::after{opacity:1}
+.card .icon-ring{
+  width:74px;height:74px;border-radius:50%;margin-bottom:1.2rem;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 35% 28%, #fffdf6, #f3ead2 70%);
+  border:1px solid rgba(198,162,79,.5);
+  box-shadow:0 4px 14px rgba(163,127,46,.18), inset 0 -3px 8px rgba(198,162,79,.18);
+  transition:transform .35s ease;
+}
+.card:hover .icon-ring{transform:scale(1.08) rotate(3deg)}
+.card .icon-ring svg{width:38px;height:38px}
+.card h3{font-size:1.4rem;margin-bottom:.55rem;line-height:1.25}
+.card p{font-size:.92rem;flex:1}
+.card .sep{width:38px;height:1px;margin:1rem auto .6rem;background:linear-gradient(90deg,transparent,var(--or),transparent)}
+.card .prix{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--or-fonce);font-style:italic}
+.card .lien{
+  margin-top:.9rem;font-size:.72rem;letter-spacing:.25em;text-transform:uppercase;color:var(--or-fonce);
+  opacity:0;transform:translateY(4px);transition:.35s;cursor:pointer;
+}
+.card .lien::after{content:" →"}
+.card:hover .lien{opacity:1;transform:none}
+
+/* ===== SERVICES ===== */
+.svc-cat{margin-top:3.5rem}
+.svc-cat h3{font-size:1.9rem;display:flex;align-items:center;gap:.9rem}
+.svc-cat h3::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--or),transparent)}
+.svc-list{margin-top:1.2rem;display:grid;gap:.4rem}
+.svc-row{
+  display:flex;align-items:baseline;gap:.8rem;padding:.85rem 1rem;border-radius:10px;transition:.25s;
+}
+.svc-row:hover{background:rgba(255,253,248,.9)}
+.svc-row .n{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--brun-fonce)}
+.svc-row .d{font-size:.85rem;color:#9a8467}
+.svc-row .dots{flex:1;border-bottom:1px dotted rgba(198,162,79,.6);transform:translateY(-4px)}
+.svc-row .p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--or-fonce);white-space:nowrap}
+
+/* ===== A PROPOS ===== */
+.apropos-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:3.5rem;align-items:center}
+.portrait{
+  aspect-ratio:3/4;border-radius:180px 180px 14px 14px;
+  background:
+    radial-gradient(circle at 40% 30%, rgba(255,255,255,.85), transparent 55%),
+    linear-gradient(160deg,#f3ecd9,#e2d3ac 60%,#cdb478);
+  border:1px solid rgba(198,162,79,.5);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 16px 40px rgba(122,98,72,.18);
+  position:relative;overflow:hidden;
+}
+.portrait span{font-family:'Great Vibes',cursive;font-size:5rem;color:rgba(163,127,46,.55)}
+blockquote{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.3rem;color:var(--brun-fonce);
+  border-left:2px solid var(--or);padding-left:1.4rem;margin:1.6rem 0;
+}
+.valeurs{display:flex;gap:1.2rem;flex-wrap:wrap;margin-top:1.8rem}
+.tag{border:1px solid var(--or);border-radius:30px;padding:.35rem 1.1rem;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;color:var(--or-fonce)}
+
+/* ===== CONTACT ===== */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;margin-top:2.5rem}
+.info-bloc{background:rgba(255,253,248,.85);border:1px solid rgba(198,162,79,.35);border-radius:14px;padding:2.2rem;box-shadow:0 8px 26px rgba(122,98,72,.08)}
+.info-bloc h3{font-size:1.5rem;margin-bottom:1rem;display:flex;align-items:center;gap:.6rem}
+.info-line{display:flex;gap:.9rem;margin:.7rem 0;align-items:baseline}
+.info-line b{font-weight:400;color:var(--brun-fonce);min-width:110px;font-family:'Cormorant Garamond',serif;font-size:1.1rem}
+.map{
+  border-radius:14px;border:1px solid rgba(198,162,79,.45);min-height:280px;
+  background:linear-gradient(140deg,#efe7d5,#e2d3ac);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.6rem;
+  color:var(--or-fonce);box-shadow:inset 0 0 40px rgba(198,162,79,.15);
+}
+.map .pin{font-size:2.4rem}
+.horaires td{padding:.3rem .8rem .3rem 0;font-size:.95rem}
+.horaires td:first-child{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--brun-fonce)}
+
+/* ===== FORMULAIRES ===== */
+form{display:grid;gap:1.1rem}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+label{font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brun);display:block;margin-bottom:.35rem}
+input,select,textarea{
+  width:100%;padding:.8rem 1rem;border-radius:10px;border:1px solid rgba(198,162,79,.5);
+  background:var(--blanc);font-family:'Jost',sans-serif;font-size:.95rem;color:var(--brun-fonce);
+  transition:.25s;outline:none;
+}
+input:focus,select:focus,textarea:focus{border-color:var(--or-fonce);box-shadow:0 0 0 3px rgba(198,162,79,.18)}
+textarea{min-height:120px;resize:vertical}
+
+/* ===== RESA ===== */
+.resa-wrap{max-width:720px;margin:0 auto}
+.steps{display:flex;justify-content:center;gap:0;margin:2.5rem 0 3rem}
+.step{display:flex;align-items:center;gap:.6rem}
+.step .num{
+  width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:1.05rem;
+  border:1px solid var(--or);color:var(--or-fonce);background:var(--blanc);
+}
+.step.done .num{background:linear-gradient(120deg,var(--or-fonce),var(--or));color:#fff;border:none}
+.step .lbl{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase}
+.step-sep{width:70px;height:1px;background:linear-gradient(90deg,var(--or),var(--or-clair));margin:0 .9rem;align-self:center}
+.creneaux{display:grid;grid-template-columns:repeat(auto-fill,minmax(90px,1fr));gap:.6rem}
+.creneau{
+  border:1px solid rgba(198,162,79,.5);border-radius:8px;padding:.55rem 0;text-align:center;
+  font-size:.9rem;cursor:pointer;background:var(--blanc);transition:.2s;color:var(--brun-fonce);
+}
+.creneau:hover{border-color:var(--or-fonce)}
+.creneau.sel{background:linear-gradient(120deg,var(--or-fonce),var(--or));color:#fff;border-color:transparent}
+.creneau.off{opacity:.35;cursor:not-allowed;text-decoration:line-through}
+.notice{
+  margin-top:2.2rem;border:1px dashed var(--or);border-radius:12px;padding:1.2rem 1.5rem;
+  font-size:.88rem;background:rgba(232,213,163,.15);display:flex;gap:.9rem;align-items:flex-start;
+}
+.resa-confirm{
+  display:none;text-align:center;padding:3rem 2rem;background:rgba(255,253,248,.9);
+  border:1px solid var(--or);border-radius:16px;margin-top:1rem;
+}
+.resa-confirm.visible{display:block}
+
+/* ===== GALERIE INSTITUT ===== */
+.galerie{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem}
+.galerie figure{position:relative;overflow:hidden;border-radius:16px;border:1px solid rgba(198,162,79,.4);box-shadow:0 10px 30px rgba(122,98,72,.12);margin:0}
+.galerie img{width:100%;height:380px;object-fit:cover;display:block;transition:transform .6s ease}
+.galerie figure:hover img{transform:scale(1.05)}
+.galerie figcaption{
+  position:absolute;left:0;right:0;bottom:0;padding:2.2rem 1rem .9rem;text-align:center;
+  color:#fffdf8;font-family:'Cormorant Garamond',serif;font-size:1.05rem;letter-spacing:.08em;
+  background:linear-gradient(180deg,transparent,rgba(92,73,49,.75));
+}
+@media(max-width:820px){.galerie{grid-template-columns:1fr}.galerie img{height:300px}}
+
+/* ===== INDIBA riche ===== */
+.indiba-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:3rem;align-items:center;max-width:1100px;margin:2rem auto 0;text-align:left}
+.indiba-logo-img{max-width:220px;width:100%;mix-blend-mode:multiply;margin-bottom:1rem}
+.benefits{list-style:none;display:grid;gap:.65rem;margin-top:1.1rem}
+.benefits li{display:flex;gap:.75rem;align-items:baseline;font-size:.98rem}
+.benefits li b{font-weight:500;color:var(--brun-fonce)}
+.benefits .pearl{flex:none;transform:translateY(2px)}
+@media(max-width:820px){.indiba-grid{grid-template-columns:1fr}}
+
+/* ===== AVANT / APRÈS ===== */
+.aa-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2.5rem}
+.aa-card{background:rgba(255,253,248,.92);border:1px solid rgba(198,162,79,.4);border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(122,98,72,.1);transition:.35s;margin:0}
+.aa-card:hover{transform:translateY(-5px);box-shadow:0 16px 38px rgba(122,98,72,.17)}
+.aa-card img{width:100%;display:block}
+.aa-card figcaption{padding:1rem;text-align:center}
+.aa-card figcaption .t{font-family:'Cormorant Garamond',serif;font-size:1.15rem;color:var(--brun-fonce);display:block}
+.aa-card figcaption .s{font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;color:var(--or-fonce)}
+@media(max-width:820px){.aa-grid{grid-template-columns:1fr}}
+.aa-note{text-align:center;font-size:.78rem;color:#9a8467;margin-top:1.2rem}
+
+/* ===== À VENIR ===== */
+.badge{display:inline-block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:#fff;
+  background:linear-gradient(120deg,var(--or-fonce),var(--or));border-radius:20px;padding:.18rem .7rem;vertical-align:middle;margin-left:.5rem}
+
+/* ===== MAP ===== */
+.map-embed{border-radius:14px;border:1px solid rgba(198,162,79,.45);overflow:hidden;box-shadow:0 8px 26px rgba(122,98,72,.1)}
+.map-embed iframe{width:100%;height:300px;border:0;display:block;filter:sepia(.25) saturate(.9)}
+
+/* ===== FOOTER ===== */
+footer{
+  margin-top:3rem;background:linear-gradient(180deg,rgba(198,162,79,.12),rgba(122,98,72,.2));
+  border-top:1px solid rgba(198,162,79,.4);padding:3rem 2rem 1.5rem;text-align:center;
+}
+footer .script{font-size:2.4rem}
+.foot-nav{display:flex;justify-content:center;gap:1.8rem;margin:1.2rem 0;flex-wrap:wrap}
+.foot-nav a{color:var(--brun);text-decoration:none;font-size:.8rem;letter-spacing:.15em;text-transform:uppercase;cursor:pointer}
+.foot-nav a:hover{color:var(--or-fonce)}
+.socials{display:flex;justify-content:center;gap:1rem;margin:1rem 0}
+.socials a{
+  width:38px;height:38px;border-radius:50%;border:1px solid var(--or);display:flex;align-items:center;justify-content:center;
+  color:var(--or-fonce);text-decoration:none;transition:.3s;font-size:1rem;
+}
+.socials a:hover{background:var(--or);color:#fff}
+.copy{font-size:.75rem;color:#9a8467;margin-top:1.2rem}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:860px){
+  nav ul{position:fixed;inset:64px 0 auto 0;background:rgba(251,248,240,.98);flex-direction:column;align-items:center;gap:1.2rem;padding:1.6rem 0;border-bottom:1px solid rgba(198,162,79,.4);transform:translateY(-130%);transition:.35s}
+  nav ul.open{transform:none}
+  .burger{display:block}
+  .hero-grid,.apropos-grid,.contact-grid,.f2{grid-template-columns:1fr}
+  .silhouette{order:-1}
+  .silhouette svg{max-width:250px}
+  .step .lbl{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVIGATION ================= -->
+<header>
+  <div class="nav-inner">
+    <div class="logo" onclick="go('accueil')">
+      <span class="script">Perlina</span>
+      <small>By L</small>
+    </div>
+    <nav>
+      <button class="burger" onclick="document.getElementById('menu').classList.toggle('open')">☰</button>
+      <ul id="menu">
+        <li><a data-p="accueil" class="active" onclick="go('accueil')">Accueil</a></li>
+        <li><a data-p="apropos" onclick="go('apropos')">À propos</a></li>
+        <li><a data-p="services" onclick="go('services')">Nos soins</a></li>
+        <li><a data-p="contact" onclick="go('contact')">Contact</a></li>
+        <li><a data-p="reservation" class="nav-cta" onclick="go('reservation')">Réserver</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= ACCUEIL ================= -->
+<main>
+<div class="page visible" id="page-accueil">
+  <div class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="script small">Nouveau sur La Grande-Motte</span>
+        <h1>Votre institut
+          <span class="script">Perlina</span>
+        </h1>
+        <div class="byl">— BY L —</div>
+        <p class="lead">Un écrin de douceur au bord de la Méditerranée. Venez découvrir la technologie <strong>INDIBA® Deep Beauty</strong> et révéler votre beauté naturelle.</p>
+        <a class="btn btn-or" onclick="go('reservation')">Réserver un soin</a>
+        <a class="btn btn-ghost" onclick="go('services')">Découvrir nos soins</a>
+      </div>
+      <div class="silhouette">
+        <svg viewBox="0 0 300 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0" stop-color="#a37f2e"/><stop offset=".5" stop-color="#e3c877"/><stop offset="1" stop-color="#a37f2e"/>
+            </linearGradient>
+            <radialGradient id="pearlG" cx="35%" cy="30%">
+              <stop offset="0" stop-color="#ffffff"/><stop offset=".4" stop-color="#f3ecd9"/><stop offset=".8" stop-color="#d9c58e"/><stop offset="1" stop-color="#b99a55"/>
+            </radialGradient>
+          </defs>
+          <g class="glow">
+          <!-- cercle -->
+          <circle class="ring" cx="150" cy="170" r="130" stroke="url(#gold)" stroke-width="1.2" opacity=".6" pathLength="1"/>
+          <!-- chignon -->
+          <path class="draw d2" pathLength="1" d="M150 60 q30 -25 55 -5 q20 15 8 38 q25 5 20 30" stroke="url(#gold)" stroke-width="2.4" stroke-linecap="round"/>
+          <path class="draw d2" pathLength="1" d="M158 52 q18 -20 40 -8" stroke="url(#gold)" stroke-width="1.6" stroke-linecap="round"/>
+          <path class="draw d2" pathLength="1" d="M150 60 q-8 -18 8 -28 q20 -12 38 2" stroke="url(#gold)" stroke-width="1.6" stroke-linecap="round"/>
+          <!-- visage de profil -->
+          <path class="draw d1" pathLength="1" d="M150 60 q-20 8 -22 34 q-1 14 -8 22 q-5 6 2 8 l8 2 q-3 10 4 12 q8 2 6 10 q-2 12 12 12 q14 0 22 -6" stroke="url(#gold)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+          <!-- oeil / sourcil -->
+          <path class="draw d3" pathLength="1" d="M132 104 q7 -5 13 -1" stroke="url(#gold)" stroke-width="1.6" stroke-linecap="round"/>
+          <path class="draw d3" pathLength="1" d="M134 112 q5 3 9 1" stroke="url(#gold)" stroke-width="1.4" stroke-linecap="round"/>
+          <!-- lèvres -->
+          <path class="draw d3" pathLength="1" d="M128 138 q6 3 11 0" stroke="url(#gold)" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- cou / épaule -->
+          <path class="draw d4" pathLength="1" d="M174 154 q4 26 30 38 q34 16 36 52 q1 30 -24 46" stroke="url(#gold)" stroke-width="2.2" stroke-linecap="round"/>
+          <path class="draw d4" pathLength="1" d="M150 168 q-6 30 -30 44 q-26 16 -24 48" stroke="url(#gold)" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- tige perles -->
+          <path class="draw d5" pathLength="1" d="M70 210 q-20 -40 10 -70 q14 -14 10 -34" stroke="url(#gold)" stroke-width="1.6" stroke-linecap="round"/>
+          <path class="draw d5" pathLength="1" d="M78 150 q-16 -4 -20 -20 M80 130 q14 -8 12 -24" stroke="url(#gold)" stroke-width="1.4" stroke-linecap="round"/>
+          <!-- feuilles -->
+          <path class="leaf" d="M76 168 q-18 2 -22 16 q16 4 22 -16z" fill="url(#gold)" opacity=".85"/>
+          <path class="leaf" style="animation-delay:2.4s,3.8s" d="M84 138 q16 -8 26 0 q-10 12 -26 0z" fill="url(#gold)" opacity=".85"/>
+          <!-- perles -->
+          <circle class="pf pf1" cx="88" cy="96" r="13" fill="url(#pearlG)"/>
+          <circle class="pf pf2" cx="64" cy="220" r="8" fill="url(#pearlG)"/>
+          <circle class="pf pf3" cx="238" cy="238" r="15" fill="url(#pearlG)"/>
+          <circle class="pf pf4" cx="256" cy="210" r="9" fill="url(#pearlG)"/>
+          <circle class="pf pf5" cx="222" cy="268" r="7" fill="url(#pearlG)"/>
+          <circle class="pf pf6" cx="120" cy="46" r="6" fill="url(#pearlG)"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- L'institut en images -->
+  <section style="padding-top:1rem">
+    <div class="container">
+      <p class="eyebrow">L'institut</p>
+      <h2 style="text-align:center;font-size:2.4rem">Un écrin au cœur de <span class="script" style="font-size:3rem">La Grande-Motte</span></h2>
+      <div class="orn"><span class="pearl sm"></span><span class="pearl"></span><span class="pearl sm"></span></div>
+      <div class="galerie">
+        <figure><img src="images/devanture.jpg" alt="Devanture de l'institut Perlina By L" loading="lazy"><figcaption>15 rue Frédéric Mistral</figcaption></figure>
+        <figure><img src="images/salon-1.jpg" alt="Espace d'accueil de l'institut" loading="lazy"><figcaption>Votre espace d'accueil</figcaption></figure>
+        <figure><img src="images/salon-2.jpg" alt="Espace onglerie de l'institut" loading="lazy"><figcaption>L'espace onglerie</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDIBA -->
+  <div class="indiba">
+    <span class="script">Venez découvrir la technologie</span>
+    <div class="indiba-grid">
+      <div>
+        <img class="indiba-logo-img" src="images/indiba-logo.jpg" alt="INDIBA Deep Beauty">
+        <p><strong>INDIBA® EDNA PRO MAX</strong> — la radiofréquence monopolaire brevetée <strong>448 kHz</strong>, référence mondiale de la régénération tissulaire. Sans douleur, sans éviction sociale, des résultats visibles dès les premières séances.</p>
+        <ul class="benefits">
+          <li><span class="pearl sm"></span><span><b>Améliore</b> la microcirculation</span></li>
+          <li><span class="pearl sm"></span><span><b>Draine</b> les excès d'eau des tissus</span></li>
+          <li><span class="pearl sm"></span><span><b>Stimule</b> le collagène et l'élastine</span></li>
+          <li><span class="pearl sm"></span><span><b>Lisse et raffermit</b> la peau — visage, corps et cheveux</span></li>
+        </ul>
+      </div>
+      <div>
+        <figure class="aa-card">
+          <img src="images/aa-visage.jpg" alt="Avant / après soin visage radiofréquence INDIBA" loading="lazy">
+          <figcaption><span class="t">Soin visage radiofréquence</span><span class="s">Après 1 séance</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- Avant / Après -->
+  <section>
+    <div class="container">
+      <p class="eyebrow">Résultats</p>
+      <h2 style="text-align:center;font-size:2.4rem">Des résultats <span class="script" style="font-size:3rem">visibles</span></h2>
+      <div class="orn"><span class="pearl sm"></span><span class="pearl"></span><span class="pearl sm"></span></div>
+      <div class="aa-grid">
+        <figure class="aa-card">
+          <img src="images/aa-ventre.jpg" alt="Avant / après remodelage du ventre INDIBA" loading="lazy">
+          <figcaption><span class="t">Remodelage du ventre</span><span class="s">Après 1 séance</span></figcaption>
+        </figure>
+        <figure class="aa-card">
+          <img src="images/aa-silhouette.jpg" alt="Avant / après traitement ventre, fesses et dos INDIBA" loading="lazy">
+          <figcaption><span class="t">Ventre, fesses &amp; dos</span><span class="s">Après 3 séances</span></figcaption>
+        </figure>
+        <figure class="aa-card">
+          <img src="images/manucure.jpg" alt="Manucure semi-permanent réalisée à l'institut" loading="lazy" style="height:100%;object-fit:cover">
+          <figcaption><span class="t">Onglerie — réalisation Perlina</span><span class="s">Semi-permanent effet perle</span></figcaption>
+        </figure>
+      </div>
+      <p class="aa-note">Photos INDIBA® Deep Beauty France / réalisations de l'institut. Les résultats peuvent varier selon les personnes.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <p class="eyebrow">Nos univers</p>
+      <h2 style="text-align:center;font-size:2.4rem">Et révéler votre <span class="script" style="font-size:3rem">beauté naturelle</span></h2>
+      <div class="orn"><span class="pearl sm"></span><span class="pearl"></span><span class="pearl sm"></span></div>
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+          <linearGradient id="goldIc" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#a37f2e"/><stop offset=".5" stop-color="#dfc172"/><stop offset="1" stop-color="#a37f2e"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <div class="cards">
+        <div class="card" onclick="go('services')">
+          <div class="icon-ring">
+            <!-- profil féminin -->
+            <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 5 q-8 2 -9 12 q-.4 5 -3 8 q-1.6 2 .8 2.6 l2.6 .6 q-1 3.4 1.4 4 q2.6 .6 2 3.4 q-.6 3.4 4.2 3.4 q4 0 6 -2"/>
+              <path d="M22 5 q9 -3 13 5 q3 7 -2 12" opacity=".75"/>
+              <path d="M15.5 18 q2.4 -1.6 4.4 -.3"/>
+            </svg>
+          </div>
+          <h3>Soins INDIBA® visage &amp; corps</h3>
+          <p>La radiofréquence 448 kHz : fermeté, éclat et silhouette remodelée.</p>
+          <div class="sep"></div>
+          <span class="prix">dès 100 €</span>
+          <span class="lien">Découvrir</span>
+        </div>
+        <div class="card" onclick="go('services')">
+          <div class="icon-ring">
+            <!-- silhouette / vague -->
+            <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" stroke-width="1.7" stroke-linecap="round">
+              <path d="M16 4 q6 4 2 11 q-3 5 1 9 q5 5 2 12" />
+              <path d="M24 6 q4 4 1.5 9 q-2 4.5 1 8 q4 4.5 1.5 11" opacity=".7"/>
+              <circle cx="10" cy="30" r="2.6" fill="url(#goldIc)" stroke="none" opacity=".85"/>
+              <circle cx="31" cy="12" r="1.8" fill="url(#goldIc)" stroke="none" opacity=".7"/>
+            </svg>
+          </div>
+          <h3>Onglerie</h3>
+          <p>Manucure soignée, vernis semi-permanent, french : des mains sublimées.</p>
+          <div class="sep"></div>
+          <span class="prix">dès 25 €</span>
+          <span class="lien">Découvrir</span>
+        </div>
+        <div class="card" onclick="go('services')">
+          <div class="icon-ring">
+            <!-- œil / regard -->
+            <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" stroke-width="1.7" stroke-linecap="round">
+              <path d="M6 21 q14 -13 28 0"/>
+              <path d="M6 21 q14 10 28 0" opacity=".75"/>
+              <circle cx="20" cy="20.5" r="4.2"/>
+              <path d="M12 10 l1.2 -2.6 M20 8 l0 -3 M28 10 l-1.2 -2.6" opacity=".8"/>
+            </svg>
+          </div>
+          <h3>Épilations femme &amp; homme</h3>
+          <p>Sourcils, visage, corps : une épilation douce et précise pour toutes et tous.</p>
+          <div class="sep"></div>
+          <span class="prix">dès 10 €</span>
+          <span class="lien">Découvrir</span>
+        </div>
+        <div class="card" onclick="go('services')">
+          <div class="icon-ring">
+            <!-- lotus bien-être -->
+            <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 8 q4 6 0 12 q-4 -6 0 -12z"/>
+              <path d="M10 14 q7 2 8 9 q-7 0 -8 -9z" opacity=".8"/>
+              <path d="M30 14 q-7 2 -8 9 q7 0 8 -9z" opacity=".8"/>
+              <path d="M7 25 q13 8 26 0 q-4 8 -13 8 q-9 0 -13 -8z" opacity=".7"/>
+            </svg>
+          </div>
+          <h3>Massages spa aux huiles chaudes</h3>
+          <p>Un moment de détente profonde dans une atmosphère douce et raffinée.</p>
+          <div class="sep"></div>
+          <span class="prix">dès 45 €</span>
+          <span class="lien">Découvrir</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a class="btn btn-or" onclick="go('services')">Voir la carte des soins</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= À PROPOS ================= -->
+<div class="page" id="page-apropos">
+  <section>
+    <div class="container">
+      <p class="eyebrow">À propos</p>
+      <h2 style="text-align:center;font-size:2.4rem">L'histoire de <span class="script" style="font-size:3rem">Perlina</span></h2>
+      <div class="orn"><span class="pearl sm"></span><span class="pearl"></span><span class="pearl sm"></span></div>
+      <div class="apropos-grid" style="margin-top:2.5rem">
+        <figure style="margin:0;border-radius:180px 180px 14px 14px;overflow:hidden;border:1px solid rgba(198,162,79,.5);box-shadow:0 16px 40px rgba(122,98,72,.18)">
+          <img src="images/devanture.jpg" alt="La devanture de Perlina By L à La Grande-Motte" style="width:100%;display:block;object-fit:cover;aspect-ratio:3/4">
+        </figure>
+        <div>
+          <h3 style="font-size:1.8rem">Un écrin de beauté à La Grande-Motte</h3>
+          <p style="margin-top:1rem">Comme la perle naît de la nacre, <strong>Perlina By L</strong> est né d'une passion : celle de révéler la beauté singulière de chacune. Installé au <strong>15 rue Frédéric Mistral</strong>, au cœur de La Grande-Motte, l'institut vous accueille sur rendez-vous dans une atmosphère douce et lumineuse, entre ivoire, nacre et reflets dorés.</p>
+          <blockquote>« L'expertise beauté, entre technologie et élégance. » — Lorie, fondatrice</blockquote>
+          <p>Fondé par <strong>Lorie</strong>, le « L » de Perlina, l'institut allie savoir-faire esthétique et technologies de pointe : la radiofréquence <strong>INDIBA® EDNA PRO MAX</strong>, des protocoles sur-mesure et des soins d'exception, dans le plus grand respect de votre peau.</p>
+          <div class="valeurs">
+            <span class="tag">Sur rendez-vous</span>
+            <span class="tag">INDIBA® EDNA PRO MAX</span>
+            <span class="tag">Sur-mesure</span>
+            <span class="tag">Résultats</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= SERVICES ================= -->
+<div class="page" id="page-services">
+  <section>
+    <div class="container">
+      <p class="eyebrow">La carte des soins</p>
+      <h2 style="text-align:center;font-size:2.4rem">Nos <span class="script" style="font-size:3rem">soins</span></h2>
+      <div class="orn"><span class="pearl sm"></span><span class="pearl"></span><span class="pearl sm"></span></div>
+      <p style="text-align:center;max-width:620px;margin:0 auto">L'expertise beauté, entre technologie et élégance. Uniquement sur rendez-vous au <strong>07 72 56 74 89</strong>.</p>
+
+      <div class="svc-cat">
+        <h3>💅 Onglerie</h3>
+        <div class="svc-list">
+          <div class="svc-row"><span class="n">Manucure simple</span><span class="dots"></span><span class="p">25 €</span></div>
+          <div class="svc-row"><span class="n">Manucure + vernis basic</span><span class="dots"></span><span class="p">35 €</span></div>
+          <div class="svc-row"><span class="n">Manucure + vernis semi-permanent</span><span class="dots"></span><span class="p">45 €</span></div>
+          <div class="svc-row"><span class="n">Manucure + semi-permanent french</span><span class="dots"></span><span class="p">48 €</span></div>
+          <div class="svc-row"><span class="n">Dépose</span><span class="d">offerte si pose Perlina</span><span class="dots"></span><span class="p">8 €</span></div>
+        </div>
+      </div>
+
+      <div class="svc-cat">
+        <h3>✨ INDIBA® EDNA PRO MAX</h3>
+        <p style="font-size:.92rem;margin-top:.6rem">La technologie anti-âge nouvelle génération. Grâce à la radiofréquence brevetée 448 kHz, INDIBA stimule naturellement la régénération cellulaire, améliore la fermeté cutanée, relance la circulation et favorise la production de collagène.</p>
+        <div class="svc-list">
+          <div class="svc-row"><span class="n">Soin visage — 1 séance</span><span class="d">30 min</span><span class="dots"></span><span class="p">100 €</span></div>
+          <div class="svc-row"><span class="n">Soin visage — cure 6 séances + 1 offerte</span><span class="dots"></span><span class="p">600 €</span></div>
+          <div class="svc-row"><span class="n">Soin corps — 1 zone</span><span class="dots"></span><span class="p">120 €</span></div>
+          <div class="svc-row"><span class="n">Soin corps — cure 10 séances</span><span class="dots"></span><span class="p">1 000 €</span></div>
+        </div>
+      </div>
+
+      <div class="svc-cat">
+        <h3>💆‍♀️ Massages — spa aux huiles chaudes</h3>
+        <p style="font-size:.92rem;margin-top:.6rem">Un moment de détente profonde dans une atmosphère douce et raffinée.</p>
+        <div class="svc-list">
+          <div class="svc-row"><span class="n">Massage détente</span><span class="d">30 min</span><span class="dots"></span><span class="p">45 €</span></div>
+          <div class="svc-row"><span class="n">Massage détente</span><span class="d">45 min</span><span class="dots"></span><span class="p">70 €</span></div>
+          <div class="svc-row"><span class="n">Massage détente</span><span class="d">1 h</span><span class="dots"></span><span class="p">85 €</span></div>
+        </div>
+      </div>
+
+      <div class="svc-cat">
+        <h3>🌸 Épilations — Femme</h3>
+        <div class="svc-list">
+          <div class="svc-row"><span class="n">Sourcils</span><span class="dots"></span><span class="p">12 €</span></div>
+          <div class="svc-row"><span class="n">Lèvres ou menton</span><span class="dots"></span><span class="p">10 €</span></div>
+          <div class="svc-row"><span class="n">Aisselles</span><span class="dots"></span><span class="p">15 €</span></div>
+          <div class="svc-row"><span class="n">Maillot simple</span><span class="dots"></span><span class="p">15 €</span></div>
+          <div class="svc-row"><span class="n">Maillot échancré</span><span class="dots"></span><span class="p">20 €</span></div>
+          <div class="svc-row"><span class="n">½ jambes</span><span class="dots"></span><span class="p">20 €</span></div>
+          <div class="svc-row"><span class="n">Jambes complètes</span><span class="dots"></span><span class="p">30 €</span></div>
+          <div class="svc-row"><span class="n">½ bras</span><span class="dots"></span><span class="p">17 €</span></div>
+          <div class="svc-row"><span class="n">Bras complet</span><span class="dots"></span><span class="p">20 €</span></div>
+        </div>
+      </div>
+
+      <div class="svc-cat">
+        <h3>🌿 Épilations — Homme</h3>
+        <div class="svc-list">
+          <div class="svc-row"><span class="n">Sourcils</span><span class="dots"></span><span class="p">15 €</span></div>
+          <div class="svc-row"><span class="n">Aisselles</span><span class="dots"></span><span class="p">17 €</span></div>
+          <div class="svc-row"><span class="n">Torse</span><span class="dots"></span><span class="p">25 €</span></div>
+          <div class="svc-row"><span class="n">Dos + épaules</span><span class="dots"></span><span class="p">27 €</span></div>
+          <div class="svc-row"><span class="n">½ jambes</span><span class="dots"></span><span class="p">28 €</span></div>
+          <div class="svc-row"><span class="n">Jambes complètes</span><span class="dots"></span><span class="p">30 €</span></div>
+        </div>
+      </div>
+
+      <div class="svc-cat">
+        <h3>🌟 À venir <span class="badge">Bientôt</span></h3>
+        <div class="svc-list">
+          <div class="svc-row"><span class="n">Browlift</span><span class="d">simple / avec teinture hybride</span><span class="dots"></span><span class="p">55 € / 85 €</span></div>
+          <div class="svc-row"><span class="n">Lash lift coréen</span><span class="d">simple / avec teinture</span><span class="dots"></span><span class="p">55 € / 85 €</span></div>
+          <div class="svc-row"><span class="n">Glow skin coréen</span><span class="d">45 min / premium 1 h 15</span><span class="dots"></span><span class="p">89 € / 129 €</span></div>
+          <div class="svc-row"><span class="n">Lift coréen</span><span class="d">1 zone / demi-visage / visage complet</span><span class="dots"></span><span class="p">70 € / 110 € / 140 €</span></div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:3rem">
+        <a class="btn btn-or" onclick="go('reservation')">Réserver ce soin</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= CONTACT ================= -->
+<div class="page" id="page-contact">
+  <section>
+    <div class="container">
+      <p class="eyebrow">Contact</p>
+      <h2 style="text-align:center;font-size:2.4rem">Venez nous <span class="script" style="font-size:3rem">rencontrer</span></h2>
+      <div class="orn"><span class="pearl sm"></span><span class="pearl"></span><span class="pearl sm"></span></div>
+
+      <div class="contact-grid">
+        <div>
+          <div class="info-bloc">
+            <h3><span class="pearl sm"></span> L'institut</h3>
+            <div class="info-line"><b>Adresse</b><span>15 rue Frédéric Mistral<br>34280 La Grande-Motte</span></div>
+            <div class="info-line"><b>Téléphone</b><span><a href="tel:+33772567489" style="color:inherit;text-decoration:none">07 72 56 74 89</a></span></div>
+            <div class="info-line"><b>Accueil</b><span>Uniquement sur rendez-vous</span></div>
+          </div>
+          <div class="info-bloc" style="margin-top:1.5rem">
+            <h3><span class="pearl sm"></span> Prendre rendez-vous</h3>
+            <p style="font-size:.95rem">Par téléphone, ou via notre <a onclick="go('reservation')" style="color:var(--or-fonce);cursor:pointer">formulaire de réservation</a>. Nous vous confirmons votre créneau au plus vite.</p>
+            <a class="btn btn-or" style="margin-top:1rem" href="tel:+33772567489">📞 07 72 56 74 89</a>
+          </div>
+        </div>
+        <div>
+          <div class="map-embed">
+            <iframe title="Perlina By L sur la carte" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=15+Rue+Fr%C3%A9d%C3%A9ric+Mistral,+34280+La+Grande-Motte&output=embed"></iframe>
+          </div>
+          <div class="info-bloc" style="margin-top:1.5rem">
+            <h3><span class="pearl sm"></span> Écrivez-nous</h3>
+            <form onsubmit="event.preventDefault();alert('Maquette : le message serait envoyé.');">
+              <div class="f2">
+                <div><label>Nom</label><input required placeholder="Votre nom"></div>
+                <div><label>Email</label><input type="email" required placeholder="votre@email.fr"></div>
+              </div>
+              <div><label>Message</label><textarea placeholder="Votre message…"></textarea></div>
+              <button class="btn btn-or" type="submit" style="justify-self:start">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= RÉSERVATION ================= -->
+<div class="page" id="page-reservation">
+  <section>
+    <div class="container resa-wrap">
+      <p class="eyebrow">Réservation</p>
+      <h2 style="text-align:center;font-size:2.4rem">Réservez votre <span class="script" style="font-size:3rem">moment</span></h2>
+      <div class="orn"><span class="pearl sm"></span><span class="pearl"></span><span class="pearl sm"></span></div>
+
+      <div class="steps">
+        <div class="step done"><span class="num">1</span><span class="lbl">Soin</span></div>
+        <div class="step-sep"></div>
+        <div class="step done"><span class="num">2</span><span class="lbl">Date &amp; heure</span></div>
+        <div class="step-sep"></div>
+        <div class="step"><span class="num">3</span><span class="lbl">Coordonnées</span></div>
+        <div class="step-sep"></div>
+        <div class="step"><span class="num">4</span><span class="lbl">Paiement</span></div>
+      </div>
+
+      <form id="resaForm" onsubmit="confirmResa(event)">
+        <div>
+          <label>Choisissez votre soin</label>
+          <select required>
+            <option value="">— Sélectionner un soin —</option>
+            <optgroup label="Onglerie">
+              <option>Manucure simple · 25 €</option>
+              <option>Manucure + vernis basic · 35 €</option>
+              <option>Manucure + vernis semi-permanent · 45 €</option>
+              <option>Manucure + semi-permanent french · 48 €</option>
+            </optgroup>
+            <optgroup label="INDIBA® EDNA PRO MAX">
+              <option>Soin visage · 30 min · 100 €</option>
+              <option>Soin visage · cure 6 séances + 1 offerte · 600 €</option>
+              <option>Soin corps · 1 zone · 120 €</option>
+              <option>Soin corps · cure 10 séances · 1 000 €</option>
+            </optgroup>
+            <optgroup label="Massages spa aux huiles chaudes">
+              <option>Massage · 30 min · 45 €</option>
+              <option>Massage · 45 min · 70 €</option>
+              <option>Massage · 1 h · 85 €</option>
+            </optgroup>
+            <optgroup label="Épilations">
+              <option>Épilation femme · dès 10 €</option>
+              <option>Épilation homme · dès 15 €</option>
+            </optgroup>
+          </select>
+        </div>
+
+        <div class="f2">
+          <div><label>Date souhaitée</label><input type="date" required></div>
+          <div><label>Avec</label>
+            <select><option>Sans préférence</option><option>Lorie — fondatrice</option></select>
+          </div>
+        </div>
+
+        <div>
+          <label>Créneaux disponibles</label>
+          <div class="creneaux" id="creneaux">
+            <div class="creneau">9 h 30</div>
+            <div class="creneau">10 h 30</div>
+            <div class="creneau off">11 h 30</div>
+            <div class="creneau">14 h</div>
+            <div class="creneau sel">15 h</div>
+            <div class="creneau off">16 h</div>
+            <div class="creneau">17 h</div>
+            <div class="creneau">18 h</div>
+          </div>
+        </div>
+
+        <div class="f2">
+          <div><label>Prénom &amp; nom</label><input required placeholder="Votre nom"></div>
+          <div><label>Téléphone</label><input type="tel" required placeholder="06 …"></div>
+        </div>
+        <div><label>Email</label><input type="email" required placeholder="votre@email.fr"></div>
+        <div><label>Remarque (optionnel)</label><textarea style="min-height:80px" placeholder="Première visite, femme enceinte, zone à traiter…"></textarea></div>
+
+        <button class="btn btn-or" type="submit" style="justify-self:center;margin-top:.5rem">Confirmer ma réservation</button>
+      </form>
+
+      <div class="resa-confirm" id="resaConfirm">
+        <span class="script" style="font-size:2.6rem">Merci !</span>
+        <p style="margin-top:.8rem">Votre demande de réservation a bien été enregistrée.<br>Vous recevrez une confirmation par email et SMS.</p>
+        <a class="btn btn-ghost" style="margin:1.5rem 0 0" onclick="resetResa()">Nouvelle réservation</a>
+      </div>
+
+      <div class="notice">
+        <span style="font-size:1.3rem">💳</span>
+        <div><strong>À venir :</strong> réservation en temps réel connectée à l'agenda de l'institut, avec paiement sécurisé en ligne (acompte ou totalité) et rappels automatiques par SMS. Cette page est une maquette fonctionnelle prête à être branchée sur un système type Stripe + calendrier.</div>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="script">Perlina</div>
+  <div style="font-family:'Cormorant Garamond',serif;letter-spacing:.4em;font-size:.7rem;text-transform:uppercase">By L</div>
+  <div class="orn" style="margin:1rem 0"><span class="pearl sm"></span><span class="pearl"></span><span class="pearl sm"></span></div>
+  <div class="foot-nav">
+    <a onclick="go('accueil')">Accueil</a>
+    <a onclick="go('apropos')">À propos</a>
+    <a onclick="go('services')">Nos soins</a>
+    <a onclick="go('contact')">Contact</a>
+    <a onclick="go('reservation')">Réservation</a>
+  </div>
+  <div class="socials">
+    <a title="Instagram">◎</a>
+    <a title="Facebook">f</a>
+    <a title="Téléphone">✆</a>
+  </div>
+  <div class="copy">© 2026 Perlina By L — Institut de beauté · 15 rue Frédéric Mistral, 34280 La Grande-Motte · 07 72 56 74 89 · Sur rendez-vous<br>
+  Perlina By L, SAS au capital de 500 € · RCS Montpellier 103 610 143 · TVA FR 52 103 610 143 · Technologie INDIBA® Deep Beauty</div>
+</footer>
+
+<script>
+function go(p){
+  document.querySelectorAll('.page').forEach(function(el){el.classList.remove('visible')});
+  document.getElementById('page-'+p).classList.add('visible');
+  document.querySelectorAll('nav a[data-p]').forEach(function(a){
+    a.classList.toggle('active', a.dataset.p===p);
+  });
+  document.getElementById('menu').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(p==='accueil'){ /* rejoue l'animation du visuel */
+    var svg=document.querySelector('.silhouette svg');
+    if(svg) svg.replaceWith(svg.cloneNode(true));
+  }
+}
+// créneaux
+document.getElementById('creneaux').addEventListener('click',function(e){
+  var c=e.target.closest('.creneau');
+  if(!c||c.classList.contains('off'))return;
+  document.querySelectorAll('.creneau').forEach(function(x){x.classList.remove('sel')});
+  c.classList.add('sel');
+});
+function confirmResa(e){
+  e.preventDefault();
+  document.getElementById('resaForm').style.display='none';
+  document.querySelector('.steps').querySelectorAll('.step').forEach(function(s){s.classList.add('done')});
+  document.getElementById('resaConfirm').classList.add('visible');
+}
+function resetResa(){
+  document.getElementById('resaForm').style.display='grid';
+  document.getElementById('resaConfirm').classList.remove('visible');
+}
+</script>
+</body>
+</html>

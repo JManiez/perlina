@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# Dependencies & build
+node_modules/
+.next/
+out/
+.vercel/
+npm-debug.log*
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Archives (doublons des dossiers source)
+*.zip
+zi2go1Q0
+
+# Site Next.js déjà versionné à part : https://github.com/JManiez/perlina-by-l
+perlina-next/
