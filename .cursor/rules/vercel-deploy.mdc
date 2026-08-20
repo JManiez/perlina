@@ -1,0 +1,20 @@
+---
+description: Tout push GitHub de ce dépôt doit déployer sur Vercel — ne plus utiliser perlina-by-l.
+alwaysApply: true
+---
+
+# Déploiement Vercel
+
+Le projet Vercel **perlina-by-l** (https://www.perlinabyl.fr) est branché sur **ce dépôt** : `github.com/JManiez/perlina`.
+Racine de build : `perlina-next/`.
+
+## Impératif
+
+- Un **commit + push vers `origin`** (ce repo) déclenche Vercel. Ne pas pousser le site vers `perlina-by-l` pour déployer.
+- Push sur **`main`** → production (`perlinabyl.fr`).
+- Push sur **toute autre branche** → déploiement preview Vercel.
+
+## Après un commit-and-push
+
+Pousser la branche courante : `git push -u origin HEAD`.
+Ne pas considérer le travail comme déployé s’il n’est que local ou seulement sur une PR non poussée.

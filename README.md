@@ -12,7 +12,14 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
-Déploiement Vercel : [github.com/JManiez/perlina-by-l](https://github.com/JManiez/perlina-by-l)
+## Déploiement Vercel
+
+Vercel déploie **ce dépôt** (`perlina-next/` comme racine). Plus besoin de pousser vers `perlina-by-l`.
+
+| Branche | Cible |
+| --- | --- |
+| `main` | Production — [perlinabyl.fr](https://www.perlinabyl.fr) |
+| toute autre branche | Preview Vercel |
 
 ## Contenu de ce dépôt
 
