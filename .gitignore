@@ -13,10 +13,8 @@ npm-debug.log*
 .env
 .env.*
 !.env.example
+!**/.env.example
 
 # Archives (doublons des dossiers source)
 *.zip
 zi2go1Q0
-
-# Site Next.js déjà versionné à part : https://github.com/JManiez/perlina-by-l
-perlina-next/
