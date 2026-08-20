@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SectionTitle from "../../components/SectionTitle";
 import FadeIn from "../../components/gsap/FadeIn";
+import { CATALOG, eur } from "../../lib/tarifs";
 
 export const metadata = { title: "Nos soins & tarifs" };
 
@@ -81,116 +82,42 @@ export default function Soins() {
         </SectionTitle>
 
         <nav className="svc-nav" aria-label="Catégories">
-          <a href="#onglerie">Onglerie</a>
-          <a href="#visage">Soins visage</a>
-          <a href="#indiba">INDIBA®</a>
-          <a href="#massages">Massages</a>
-          <a href="#epilation-femme">Épilations femme</a>
-          <a href="#epilation-homme">Épilations homme</a>
+          {CATALOG.map((cat) => (
+            <a key={cat.id} href={`#${cat.id}`}>
+              {cat.nav}
+            </a>
+          ))}
         </nav>
 
-        <FadeIn className="svc-cat" as="div">
-          <h3 id="onglerie">
-            {ic.nail} Onglerie &amp; pédicure
-          </h3>
-          <div className="svc-list">
-            <Row n="Manucure simple" p="17 €" />
-            <Row n="Manucure + vernis basique" p="25 €" />
-            <Row n="Manucure + vernis semi-permanent" p="35 €" />
-            <Row n="Manucure + french" p="40 €" />
-            <Row n="Dépose" d="offerte si pose Perlina" p="5 €" />
-            <Row n="Dépose seule" p="10 €" />
-            <Row n="Capsule américaine" p="50 €" />
-            <Row n="Soin des pieds" d="bain, gommage, masque, modelage" p="30 €" />
-          </div>
-        </FadeIn>
-
-        <FadeIn className="svc-cat">
-          <h3 id="visage">
-            {ic.visage} Soins visage
-          </h3>
-          <div className="svc-list">
-            <div className="svc-offer">
-              <Row n="Soin du visage" d="1 h" p="80 €" />
-              <ul className="svc-includes">
-                <li>Double nettoyage</li>
-                <li>Gommage</li>
-                <li>Modelage</li>
-                <li>Masque</li>
-                <li>Masque LED</li>
-              </ul>
+        {CATALOG.map((cat) => (
+          <FadeIn key={cat.id} className="svc-cat">
+            <h3 id={cat.id}>
+              {ic[cat.icon]} {cat.title}
+            </h3>
+            {cat.desc ? <p className="cat-desc">{cat.desc}</p> : null}
+            <div className={`svc-list${cat.columns === 2 ? " two" : ""}`}>
+              {cat.items.map((item) =>
+                item.includes ? (
+                  <div className="svc-offer" key={`${item.name}-${item.price}`}>
+                    <Row n={item.name} d={item.duration} p={eur(item.price)} />
+                    <ul className="svc-includes">
+                      {item.includes.map((line) => (
+                        <li key={line}>{line}</li>
+                      ))}
+                    </ul>
+                  </div>
+                ) : (
+                  <Row
+                    key={`${item.name}-${item.duration || item.detail || item.price}`}
+                    n={item.name}
+                    d={item.detail || item.duration}
+                    p={eur(item.price)}
+                  />
+                )
+              )}
             </div>
-            <div className="svc-offer">
-              <Row n="Soin visage Prestige Perlina" d="1 h 30" p="170 €" />
-              <ul className="svc-includes">
-                <li>Double nettoyage</li>
-                <li>Gommage</li>
-                <li>Soin radiofréquence INDIBA®</li>
-                <li>Masque</li>
-                <li>Modelage + masque LED</li>
-              </ul>
-            </div>
-          </div>
-        </FadeIn>
-
-        <FadeIn className="svc-cat">
-          <h3 id="indiba">
-            {ic.etoile} INDIBA® EDNA PRO MAX
-          </h3>
-          <p className="cat-desc">
-            La technologie anti-âge nouvelle génération. Grâce à la radiofréquence brevetée 448 kHz, INDIBA stimule
-            naturellement la régénération cellulaire, améliore la fermeté cutanée, relance la circulation et favorise
-            la production de collagène. Le soin visage Prestige Perlina l&apos;intègre dans un protocole complet.
-          </p>
-          <div className="svc-list">
-            <Row n="Soin visage Prestige Perlina" d="1 h 30" p="170 €" />
-            <Row n="Soin corps — 1 zone" p="120 €" />
-            <Row n="Soin corps — cure 10 séances" p="1 000 €" />
-          </div>
-        </FadeIn>
-
-        <FadeIn className="svc-cat">
-          <h3 id="massages">
-            {ic.lotus} Massages — spa aux huiles chaudes
-          </h3>
-          <p className="cat-desc">Un moment de détente profonde dans une atmosphère douce et raffinée.</p>
-          <div className="svc-list">
-            <Row n="Massage détente" d="30 min" p="45 €" />
-            <Row n="Massage détente" d="45 min" p="70 €" />
-            <Row n="Massage détente" d="1 h" p="85 €" />
-          </div>
-        </FadeIn>
-
-        <FadeIn className="svc-cat">
-          <h3 id="epilation-femme">
-            {ic.regard} Épilations — Femme
-          </h3>
-          <div className="svc-list two">
-            <Row n="Sourcils" p="12 €" />
-            <Row n="Lèvres ou menton" p="10 €" />
-            <Row n="Aisselles" p="15 €" />
-            <Row n="Maillot simple" p="15 €" />
-            <Row n="Maillot échancré" p="20 €" />
-            <Row n="½ jambes" p="20 €" />
-            <Row n="Jambes complètes" p="30 €" />
-            <Row n="½ bras" p="17 €" />
-            <Row n="Bras complet" p="20 €" />
-          </div>
-        </FadeIn>
-
-        <FadeIn className="svc-cat">
-          <h3 id="epilation-homme">
-            {ic.feuille} Épilations — Homme
-          </h3>
-          <div className="svc-list two">
-            <Row n="Sourcils" p="15 €" />
-            <Row n="Aisselles" p="17 €" />
-            <Row n="Torse" p="25 €" />
-            <Row n="Dos + épaules" p="27 €" />
-            <Row n="½ jambes" p="28 €" />
-            <Row n="Jambes complètes" p="30 €" />
-          </div>
-        </FadeIn>
+          </FadeIn>
+        ))}
 
         <div className="center">
           <Link className="btn btn-or" href="/reservation">

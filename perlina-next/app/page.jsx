@@ -6,6 +6,7 @@ import Hero from "../components/Hero";
 import MosaicFigure from "../components/MosaicFigure";
 import CountKhz from "../components/CountKhz";
 import BeforeAfter from "../components/BeforeAfter";
+import { HOME_CARDS } from "../lib/tarifs";
 
 const GoldDefs = () => (
   <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
@@ -19,59 +20,39 @@ const GoldDefs = () => (
   </svg>
 );
 
-const univers = [
-  {
-    title: "Soins INDIBA® visage & corps",
-    desc: "La radiofréquence 448 kHz : fermeté, éclat et silhouette remodelée.",
-    prix: "dès 120 €",
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M22 5 q-8 2 -9 12 q-.4 5 -3 8 q-1.6 2 .8 2.6 l2.6 .6 q-1 3.4 1.4 4 q2.6 .6 2 3.4 q-.6 3.4 4.2 3.4 q4 0 6 -2" />
-        <path d="M22 5 q9 -3 13 5 q3 7 -2 12" opacity=".75" />
-        <path d="M15.5 18 q2.4 -1.6 4.4 -.3" />
-      </svg>
-    ),
-  },
-  {
-    title: "Onglerie",
-    desc: "Manucure soignée, vernis semi-permanent, french et soin des pieds.",
-    prix: "dès 17 €",
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M13 34 v-12 q0 -3 3 -3 q3 0 3 3 v6" />
-        <path d="M19 22 q0 -3 3 -3 q3 0 3 3 v4" opacity=".85" />
-        <path d="M25 24 q0 -3 3 -3 q3 0 3 3 v4 q0 8 -9 8 h-3 q-4 0 -6 -4" opacity=".7" />
-        <path d="M16 8 q2 -4 4 0 q1.6 3.4 0 6 q-2 3 -4 0 q-1.6 -2.6 0 -6z" />
-      </svg>
-    ),
-  },
-  {
-    title: "Épilations femme & homme",
-    desc: "Sourcils, visage, corps : une épilation douce et précise pour toutes et tous.",
-    prix: "dès 10 €",
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round">
-        <path d="M6 21 q14 -13 28 0" />
-        <path d="M6 21 q14 10 28 0" opacity=".75" />
-        <circle cx="20" cy="20.5" r="4.2" />
-        <path d="M12 10 l1.2 -2.6 M20 8 l0 -3 M28 10 l-1.2 -2.6" opacity=".8" />
-      </svg>
-    ),
-  },
-  {
-    title: "Massages spa aux huiles chaudes",
-    desc: "Un moment de détente profonde dans une atmosphère douce et raffinée.",
-    prix: "dès 45 €",
-    icon: (
-      <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M20 8 q4 6 0 12 q-4 -6 0 -12z" />
-        <path d="M10 14 q7 2 8 9 q-7 0 -8 -9z" opacity=".8" />
-        <path d="M30 14 q-7 2 -8 9 q7 0 8 -9z" opacity=".8" />
-        <path d="M7 25 q13 8 26 0 q-4 8 -13 8 q-9 0 -13 -8z" opacity=".7" />
-      </svg>
-    ),
-  },
-];
+const icons = {
+  soins: (
+    <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 5 q-8 2 -9 12 q-.4 5 -3 8 q-1.6 2 .8 2.6 l2.6 .6 q-1 3.4 1.4 4 q2.6 .6 2 3.4 q-.6 3.4 4.2 3.4 q4 0 6 -2" />
+      <path d="M22 5 q9 -3 13 5 q3 7 -2 12" opacity=".75" />
+      <path d="M15.5 18 q2.4 -1.6 4.4 -.3" />
+    </svg>
+  ),
+  onglerie: (
+    <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M13 34 v-12 q0 -3 3 -3 q3 0 3 3 v6" />
+      <path d="M19 22 q0 -3 3 -3 q3 0 3 3 v4" opacity=".85" />
+      <path d="M25 24 q0 -3 3 -3 q3 0 3 3 v4 q0 8 -9 8 h-3 q-4 0 -6 -4" opacity=".7" />
+      <path d="M16 8 q2 -4 4 0 q1.6 3.4 0 6 q-2 3 -4 0 q-1.6 -2.6 0 -6z" />
+    </svg>
+  ),
+  epilation: (
+    <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round">
+      <path d="M6 21 q14 -13 28 0" />
+      <path d="M6 21 q14 10 28 0" opacity=".75" />
+      <circle cx="20" cy="20.5" r="4.2" />
+      <path d="M12 10 l1.2 -2.6 M20 8 l0 -3 M28 10 l-1.2 -2.6" opacity=".8" />
+    </svg>
+  ),
+  massages: (
+    <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M20 8 q4 6 0 12 q-4 -6 0 -12z" />
+      <path d="M10 14 q7 2 8 9 q-7 0 -8 -9z" opacity=".8" />
+      <path d="M30 14 q-7 2 -8 9 q7 0 8 -9z" opacity=".8" />
+      <path d="M7 25 q13 8 26 0 q-4 8 -13 8 q-9 0 -13 -8z" opacity=".7" />
+    </svg>
+  ),
+};
 
 export default function Home() {
   return (
@@ -242,10 +223,10 @@ export default function Home() {
             Quatre univers de <em>soins</em>
           </SectionTitle>
           <div className="cards">
-            {univers.map((u, i) => (
-              <FadeIn key={u.title} delay={i * 0.08}>
-                <Link href="/soins" className="card">
-                  <div className="icon-ring">{u.icon}</div>
+            {HOME_CARDS.map((u, i) => (
+              <FadeIn key={u.id} delay={i * 0.08}>
+                <Link href={u.href} className="card">
+                  <div className="icon-ring">{icons[u.id]}</div>
                   <h3>{u.title}</h3>
                   <p>{u.desc}</p>
                   <div className="sep" />

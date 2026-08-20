@@ -1,81 +1,10 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { FORM_CATS } from "../lib/tarifs";
 
 const TEL = "+33672567489";
-
-const CATS = [
-  {
-    id: "onglerie",
-    label: "Onglerie",
-    services: [
-      { name: "Manucure simple", price: "17 €" },
-      { name: "Manucure + vernis basique", price: "25 €" },
-      { name: "Manucure + vernis semi-permanent", price: "35 €" },
-      { name: "Manucure + french", price: "40 €" },
-      { name: "Dépose (offerte si pose Perlina)", price: "5 €" },
-      { name: "Dépose seule", price: "10 €" },
-      { name: "Capsule américaine", price: "50 €" },
-      { name: "Soin des pieds — bain, gommage, masque, modelage", price: "30 €" },
-    ],
-  },
-  {
-    id: "visage",
-    label: "Soins visage",
-    services: [
-      { name: "Soin du visage — 1 h", price: "80 €" },
-      { name: "Soin visage Prestige Perlina — 1 h 30", price: "170 €" },
-    ],
-  },
-  {
-    id: "indiba",
-    label: "INDIBA®",
-    services: [
-      { name: "Soin visage Prestige Perlina — 1 h 30 (INDIBA)", price: "170 €" },
-      { name: "Soin corps INDIBA — 1 zone", price: "120 €" },
-      { name: "Cure corps INDIBA — 10 séances", price: "1 000 €" },
-    ],
-  },
-  {
-    id: "massages",
-    label: "Massages",
-    services: [
-      { name: "Massage détente — 30 min", price: "45 €" },
-      { name: "Massage détente — 45 min", price: "70 €" },
-      { name: "Massage détente — 1 h", price: "85 €" },
-    ],
-  },
-  {
-    id: "epi-f",
-    label: "Épilation femme",
-    hint: "Vous pourrez préciser d'autres zones en remarque.",
-    services: [
-      { name: "Épilation femme — sourcils", price: "12 €" },
-      { name: "Épilation femme — lèvres ou menton", price: "10 €" },
-      { name: "Épilation femme — aisselles", price: "15 €" },
-      { name: "Épilation femme — maillot simple", price: "15 €" },
-      { name: "Épilation femme — maillot échancré", price: "20 €" },
-      { name: "Épilation femme — ½ jambes", price: "20 €" },
-      { name: "Épilation femme — jambes complètes", price: "30 €" },
-      { name: "Épilation femme — ½ bras", price: "17 €" },
-      { name: "Épilation femme — bras complet", price: "20 €" },
-    ],
-  },
-  {
-    id: "epi-h",
-    label: "Épilation homme",
-    hint: "Vous pourrez préciser d'autres zones en remarque.",
-    services: [
-      { name: "Épilation homme — sourcils", price: "15 €" },
-      { name: "Épilation homme — aisselles", price: "17 €" },
-      { name: "Épilation homme — torse", price: "25 €" },
-      { name: "Épilation homme — dos + épaules", price: "27 €" },
-      { name: "Épilation homme — ½ jambes", price: "28 €" },
-      { name: "Épilation homme — jambes complètes", price: "30 €" },
-    ],
-  },
-  { id: "autre", label: "Autre", services: [{ name: "Autre / je ne sais pas encore", price: "" }] },
-];
+const CATS = FORM_CATS;
 
 const MOMENTS = ["Indifférent", "Matin", "Midi", "Après-midi"];
 
