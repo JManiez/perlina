@@ -18,7 +18,7 @@ export const metadata = {
     template: "%s · Perlina By L",
   },
   description:
-    "Perlina By L, institut de beauté à La Grande-Motte. Technologie INDIBA® Deep Beauty, onglerie, massages, épilations. 15 rue Frédéric Mistral — sur rendez-vous au 06 72 56 74 89.",
+    "Perlina By L, institut de beauté à La Grande-Motte. Technologie INDIBA® Deep Beauty, onglerie et soins. 15 rue Frédéric Mistral — sur rendez-vous au 06 72 56 74 89.",
   openGraph: {
     title: "Perlina By L — Institut de beauté · La Grande-Motte",
     description: "Venez découvrir la technologie INDIBA® Deep Beauty et révéler votre beauté naturelle.",

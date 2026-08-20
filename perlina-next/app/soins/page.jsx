@@ -30,34 +30,6 @@ const ic = {
       <path d="M15.5 18 q2.4 -1.6 4.4 -.3" />
     </svg>
   ),
-  lotus: (
-    <svg className="cat-ic" viewBox="0 0 40 40" fill="none" stroke="#8f7130" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 8 q4 6 0 12 q-4 -6 0 -12z" />
-      <path d="M10 14 q7 2 8 9 q-7 0 -8 -9z" opacity=".8" />
-      <path d="M30 14 q-7 2 -8 9 q7 0 8 -9z" opacity=".8" />
-      <path d="M7 25 q13 8 26 0 q-4 8 -13 8 q-9 0 -13 -8z" opacity=".7" />
-    </svg>
-  ),
-  regard: (
-    <svg className="cat-ic" viewBox="0 0 40 40" fill="none" stroke="#8f7130" strokeWidth="1.5" strokeLinecap="round">
-      <path d="M6 21 q14 -13 28 0" />
-      <path d="M6 21 q14 10 28 0" opacity=".75" />
-      <circle cx="20" cy="20.5" r="4.2" />
-      <path d="M12 10 l1.2 -2.6 M20 8 l0 -3 M28 10 l-1.2 -2.6" opacity=".8" />
-    </svg>
-  ),
-  feuille: (
-    <svg className="cat-ic" viewBox="0 0 40 40" fill="none" stroke="#8f7130" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 34 q-1 -14 4 -22 q4 -7 10 -8 q1 8 -3 15 q-4 8 -11 15z" />
-      <path d="M20 34 q-8 -2 -11 -9 q-2 -5 0 -9 q6 2 9 8" opacity=".7" />
-    </svg>
-  ),
-  etoile: (
-    <svg className="cat-ic" viewBox="0 0 40 40" fill="none" stroke="#8f7130" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M20 6 q1.5 9 4 11.5 q2.5 2.5 10 2.5 q-7.5 1.5 -10 4 q-2.5 2.5 -4 10 q-1.5 -7.5 -4 -10 q-2.5 -2.5 -10 -4 q7.5 0 10 -2.5 q2.5 -2.5 4 -11.5z" />
-      <circle cx="31" cy="8" r="1.4" opacity=".7" />
-    </svg>
-  ),
 };
 
 export default function Soins() {

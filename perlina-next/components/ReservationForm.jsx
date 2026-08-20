@@ -216,7 +216,7 @@ export default function ReservationForm() {
             id="r-rem"
             name="remarque"
             rows={3}
-            placeholder="Première visite, grossesse, zone à traiter…"
+            placeholder="Première visite, grossesse, précisions sur le soin…"
           />
         </div>
       </section>

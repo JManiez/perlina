@@ -352,7 +352,7 @@ a[href^="tel:"]{white-space:nowrap}
 .aa-note{font-size:.74rem;color:#9a8467;margin-top:1.8rem}
 
 /* ===== CARTES UNIVERS ===== */
-.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3.8rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:3.8rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .cards > *{display:flex;min-height:100%;border-right:1px solid var(--line)}
 .cards > *:last-child{border-right:none}
 .card{
@@ -622,8 +622,6 @@ label em{font-style:normal;letter-spacing:.08em;text-transform:none;color:#9a846
 /* ===== RESPONSIVE — tablette ===== */
 @media(max-width:1023px){
   .cards{grid-template-columns:1fr 1fr}
-  .cards > *:nth-child(2){border-right:none}
-  .cards > *:nth-child(3),.cards > *:nth-child(4){border-top:1px solid var(--line)}
   .foot-grid{grid-template-columns:1fr 1fr}
   .mosaic{grid-template-columns:1fr 1fr}
   .m-a,.m-b,.m-c,.m-d{grid-column:auto;min-height:0;aspect-ratio:4/5}
