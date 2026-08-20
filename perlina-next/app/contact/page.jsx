@@ -29,8 +29,8 @@ export default function Contact() {
               <div className="info-line">
                 <b>Téléphone</b>
                 <span>
-                  <a href="tel:+33772567489" className="link-u">
-                    07 72 56 74 89
+                  <a href="tel:+33672567489" className="link-u">
+                    06 72 56 74 89
                   </a>
                 </span>
               </div>
@@ -44,17 +44,17 @@ export default function Contact() {
                 <span className="pearl sm" /> Prendre rendez-vous
               </h3>
               <p style={{ fontSize: ".95rem" }}>
-                Par téléphone ou SMS au 07 72 56 74 89, ou via notre{" "}
+                Par téléphone ou SMS au 06 72 56 74 89, ou via notre{" "}
                 <Link href="/reservation" className="link-u" style={{ color: "var(--or-fonce)" }}>
                   formulaire de demande de rendez-vous
                 </Link>
                 . Nous vous confirmons votre créneau au plus vite.
               </p>
               <div className="btn-row" style={{ marginTop: "1.6rem" }}>
-                <a className="btn btn-or" href="tel:+33772567489">
+                <a className="btn btn-or" href="tel:+33672567489">
                   Appeler l&apos;institut
                 </a>
-                <a className="btn btn-ghost" href="sms:+33772567489">
+                <a className="btn btn-ghost" href="sms:+33672567489">
                   Envoyer un SMS
                 </a>
               </div>

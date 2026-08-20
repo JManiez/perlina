@@ -23,7 +23,7 @@ const univers = [
   {
     title: "Soins INDIBA® visage & corps",
     desc: "La radiofréquence 448 kHz : fermeté, éclat et silhouette remodelée.",
-    prix: "dès 100 €",
+    prix: "dès 120 €",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M22 5 q-8 2 -9 12 q-.4 5 -3 8 q-1.6 2 .8 2.6 l2.6 .6 q-1 3.4 1.4 4 q2.6 .6 2 3.4 q-.6 3.4 4.2 3.4 q4 0 6 -2" />
@@ -34,8 +34,8 @@ const univers = [
   },
   {
     title: "Onglerie",
-    desc: "Manucure soignée, vernis semi-permanent, french : des mains sublimées.",
-    prix: "dès 25 €",
+    desc: "Manucure soignée, vernis semi-permanent, french et soin des pieds.",
+    prix: "dès 17 €",
     icon: (
       <svg viewBox="0 0 40 40" fill="none" stroke="url(#goldIc)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M13 34 v-12 q0 -3 3 -3 q3 0 3 3 v6" />

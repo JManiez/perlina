@@ -28,26 +28,47 @@ export default function APropos() {
             </picture>
           </FadeIn>
           <FadeIn delay={0.12}>
-            <h3 style={{ fontSize: "clamp(1.7rem,3vw,2.1rem)", fontWeight: 400 }}>
-              Un écrin de beauté à La Grande-Motte
-            </h3>
-            <p style={{ marginTop: "1.2rem" }}>
-              Comme la perle naît de la nacre, <strong>Perlina By L</strong> est né d&apos;une passion : celle de
-              révéler la beauté singulière de chacune. Installé au <strong>15 rue Frédéric Mistral</strong>, au cœur de
-              La Grande-Motte, l&apos;institut vous accueille sur rendez-vous dans une atmosphère douce et lumineuse,
-              entre ivoire, nacre et reflets dorés.
-            </p>
-            <blockquote>« L&apos;expertise beauté, entre technologie et élégance. » — Lorie, fondatrice</blockquote>
-            <p>
-              Fondé par <strong>Lorie</strong>, le « L » de Perlina, l&apos;institut allie savoir-faire esthétique et
-              technologies de pointe : la radiofréquence <strong>INDIBA® EDNA PRO MAX</strong>, des protocoles
-              sur-mesure et des soins d&apos;exception, dans le plus grand respect de votre peau.
-            </p>
+            <div className="apropos-copy">
+              <h3>Bienvenue chez Perlina By L</h3>
+              <p>
+                Derrière Perlina By L, il y a avant tout une histoire, un parcours et une passion pour le bien-être et
+                la beauté.
+              </p>
+              <p>
+                Pendant plusieurs années, j&apos;ai évolué dans l&apos;univers du spectacle en tant que danseuse au Crazy
+                Horse, une expérience qui m&apos;a appris l&apos;exigence, le soin du détail, l&apos;élégance et
+                l&apos;importance de se sentir bien dans son corps.
+              </p>
+              <p>
+                J&apos;ai ensuite consacré de nombreuses années au sport et au coaching, toujours avec cette même envie :
+                accompagner les femmes, les aider à prendre soin d&apos;elles, à retrouver confiance et à se sentir
+                mieux dans leur corps.
+              </p>
+              <p>
+                Au fil du temps, je me suis naturellement tournée vers les soins et le bien-être, un univers qui me
+                passionne profondément.
+              </p>
+              <p>
+                Perlina By L est ainsi né d&apos;un véritable projet de cœur, mûri pendant longtemps : créer un lieu
+                qui me ressemble, chaleureux et intimiste, où chaque personne puisse prendre du temps pour elle, loin du
+                rythme du quotidien.
+              </p>
+              <p>
+                Aujourd&apos;hui, je suis heureuse de vous accueillir dans mon institut à La Grande-Motte, avec une
+                approche personnalisée de la beauté : des soins choisis avec exigence, des technologies performantes
+                comme INDIBA®, mais aussi beaucoup d&apos;écoute et de bienveillance.
+              </p>
+              <blockquote>
+                Parce qu&apos;au-delà d&apos;un soin, je souhaite que chaque rendez-vous chez Perlina soit une parenthèse
+                rien qu&apos;à vous.
+              </blockquote>
+              <p className="apropos-sign">Lorie — Perlina By L</p>
+            </div>
             <div className="valeurs">
               <span className="tag">Sur rendez-vous</span>
-              <span className="tag">INDIBA® EDNA PRO MAX</span>
-              <span className="tag">Sur-mesure</span>
-              <span className="tag">Résultats</span>
+              <span className="tag">INDIBA®</span>
+              <span className="tag">Écoute</span>
+              <span className="tag">Bienveillance</span>
             </div>
           </FadeIn>
         </div>

@@ -70,8 +70,8 @@ export default function Soins() {
           lead={
             <>
               L&apos;expertise beauté, entre technologie et élégance. Uniquement sur rendez-vous au{" "}
-              <a href="tel:+33772567489" className="link-u" style={{ color: "var(--or-fonce)" }}>
-                07 72 56 74 89
+              <a href="tel:+33672567489" className="link-u" style={{ color: "var(--or-fonce)" }}>
+                06 72 56 74 89
               </a>
               .
             </>
@@ -82,38 +82,68 @@ export default function Soins() {
 
         <nav className="svc-nav" aria-label="Catégories">
           <a href="#onglerie">Onglerie</a>
+          <a href="#visage">Soins visage</a>
           <a href="#indiba">INDIBA®</a>
           <a href="#massages">Massages</a>
           <a href="#epilation-femme">Épilations femme</a>
           <a href="#epilation-homme">Épilations homme</a>
-          <a href="#avenir">À venir</a>
         </nav>
 
         <FadeIn className="svc-cat" as="div">
           <h3 id="onglerie">
-            {ic.nail} Onglerie
+            {ic.nail} Onglerie &amp; pédicure
           </h3>
           <div className="svc-list">
-            <Row n="Manucure simple" p="25 €" />
-            <Row n="Manucure + vernis basic" p="35 €" />
-            <Row n="Manucure + vernis semi-permanent" p="45 €" />
-            <Row n="Manucure + semi-permanent french" p="48 €" />
-            <Row n="Dépose" d="offerte si pose Perlina" p="8 €" />
+            <Row n="Manucure simple" p="17 €" />
+            <Row n="Manucure + vernis basique" p="25 €" />
+            <Row n="Manucure + vernis semi-permanent" p="35 €" />
+            <Row n="Manucure + french" p="40 €" />
+            <Row n="Dépose" d="offerte si pose Perlina" p="5 €" />
+            <Row n="Dépose seule" p="10 €" />
+            <Row n="Capsule américaine" p="50 €" />
+            <Row n="Soin des pieds" d="bain, gommage, masque, modelage" p="30 €" />
+          </div>
+        </FadeIn>
+
+        <FadeIn className="svc-cat">
+          <h3 id="visage">
+            {ic.visage} Soins visage
+          </h3>
+          <div className="svc-list">
+            <div className="svc-offer">
+              <Row n="Soin du visage" d="1 h" p="80 €" />
+              <ul className="svc-includes">
+                <li>Double nettoyage</li>
+                <li>Gommage</li>
+                <li>Modelage</li>
+                <li>Masque</li>
+                <li>Masque LED</li>
+              </ul>
+            </div>
+            <div className="svc-offer">
+              <Row n="Soin visage Prestige Perlina" d="1 h 30" p="170 €" />
+              <ul className="svc-includes">
+                <li>Double nettoyage</li>
+                <li>Gommage</li>
+                <li>Soin radiofréquence INDIBA®</li>
+                <li>Masque</li>
+                <li>Modelage + masque LED</li>
+              </ul>
+            </div>
           </div>
         </FadeIn>
 
         <FadeIn className="svc-cat">
           <h3 id="indiba">
-            {ic.visage} INDIBA® EDNA PRO MAX
+            {ic.etoile} INDIBA® EDNA PRO MAX
           </h3>
           <p className="cat-desc">
             La technologie anti-âge nouvelle génération. Grâce à la radiofréquence brevetée 448 kHz, INDIBA stimule
             naturellement la régénération cellulaire, améliore la fermeté cutanée, relance la circulation et favorise
-            la production de collagène.
+            la production de collagène. Le soin visage Prestige Perlina l&apos;intègre dans un protocole complet.
           </p>
           <div className="svc-list">
-            <Row n="Soin visage — 1 séance" d="30 min" p="100 €" />
-            <Row n="Soin visage — cure 6 séances + 1 offerte" p="600 €" />
+            <Row n="Soin visage Prestige Perlina" d="1 h 30" p="170 €" />
             <Row n="Soin corps — 1 zone" p="120 €" />
             <Row n="Soin corps — cure 10 séances" p="1 000 €" />
           </div>
@@ -159,18 +189,6 @@ export default function Soins() {
             <Row n="Dos + épaules" p="27 €" />
             <Row n="½ jambes" p="28 €" />
             <Row n="Jambes complètes" p="30 €" />
-          </div>
-        </FadeIn>
-
-        <FadeIn className="svc-cat">
-          <h3 id="avenir">
-            {ic.etoile} À venir <span className="badge">Bientôt</span>
-          </h3>
-          <div className="svc-list">
-            <Row n="Browlift" d="simple / avec teinture hybride" p="55 € / 85 €" />
-            <Row n="Lash lift coréen" d="simple / avec teinture" p="55 € / 85 €" />
-            <Row n="Glow skin coréen" d="45 min / premium 1 h 15" p="89 € / 129 €" />
-            <Row n="Lift coréen" d="1 zone / demi-visage / visage complet" p="70 € / 110 € / 140 €" />
           </div>
         </FadeIn>
 

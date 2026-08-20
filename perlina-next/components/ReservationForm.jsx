@@ -2,25 +2,36 @@
 
 import { useMemo, useState } from "react";
 
-const TEL = "+33772567489";
+const TEL = "+33672567489";
 
 const CATS = [
   {
     id: "onglerie",
     label: "Onglerie",
     services: [
-      { name: "Manucure simple", price: "25 €" },
-      { name: "Manucure + vernis basic", price: "35 €" },
-      { name: "Manucure + vernis semi-permanent", price: "45 €" },
-      { name: "Manucure + semi-permanent french", price: "48 €" },
+      { name: "Manucure simple", price: "17 €" },
+      { name: "Manucure + vernis basique", price: "25 €" },
+      { name: "Manucure + vernis semi-permanent", price: "35 €" },
+      { name: "Manucure + french", price: "40 €" },
+      { name: "Dépose (offerte si pose Perlina)", price: "5 €" },
+      { name: "Dépose seule", price: "10 €" },
+      { name: "Capsule américaine", price: "50 €" },
+      { name: "Soin des pieds — bain, gommage, masque, modelage", price: "30 €" },
+    ],
+  },
+  {
+    id: "visage",
+    label: "Soins visage",
+    services: [
+      { name: "Soin du visage — 1 h", price: "80 €" },
+      { name: "Soin visage Prestige Perlina — 1 h 30", price: "170 €" },
     ],
   },
   {
     id: "indiba",
     label: "INDIBA®",
     services: [
-      { name: "Soin visage INDIBA — 30 min", price: "100 €" },
-      { name: "Cure visage INDIBA — 6 + 1 offerte", price: "600 €" },
+      { name: "Soin visage Prestige Perlina — 1 h 30 (INDIBA)", price: "170 €" },
       { name: "Soin corps INDIBA — 1 zone", price: "120 €" },
       { name: "Cure corps INDIBA — 10 séances", price: "1 000 €" },
     ],
@@ -266,7 +277,7 @@ export default function ReservationForm() {
               required
               inputMode="tel"
               autoComplete="tel"
-              placeholder="07 72 56 74 89"
+              placeholder="06 72 56 74 89"
             />
           </div>
         </div>

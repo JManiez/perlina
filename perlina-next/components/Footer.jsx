@@ -20,7 +20,7 @@ export default function Footer() {
           <h4>L&apos;institut</h4>
           <p>15 rue Frédéric Mistral</p>
           <p>34280 La Grande-Motte</p>
-          <a href="tel:+33772567489">07 72 56 74 89</a>
+          <a href="tel:+33672567489">06 72 56 74 89</a>
           <p>Uniquement sur rendez-vous</p>
         </div>
         <div className="foot-col">
