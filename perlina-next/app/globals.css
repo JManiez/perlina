@@ -206,6 +206,7 @@ html.menu-open main,html.menu-open .site-footer{visibility:hidden}
   transition:background-size .4s cubic-bezier(.22,1,.36,1);
 }
 .link-u:hover{background-size:100% 1px}
+a[href^="tel:"]{white-space:nowrap}
 
 /* ===== HERO ===== */
 .hero{
