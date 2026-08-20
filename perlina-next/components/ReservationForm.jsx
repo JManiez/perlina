@@ -196,6 +196,7 @@ export default function ReservationForm() {
           ))}
         </div>
         {current.hint ? <p className="field-hint">{current.hint}</p> : null}
+        {!soin ? <p className="field-hint resa-pick-hint">Sélectionnez le soin souhaité.</p> : null}
         <div className={`resa-choices${current.services.length > 5 ? " compact" : ""}`}>
           {current.services.map((s) => (
             <label key={s.name} className={`resa-choice${soin === s.name ? " is-on" : ""}`}>

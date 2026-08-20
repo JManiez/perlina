@@ -401,9 +401,9 @@ blockquote{
 /* ===== FORMULAIRES ===== */
 form{display:grid;gap:1.7rem}
 .f2{display:grid;grid-template-columns:1fr 1fr;gap:1.7rem}
-label,.label-like{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);display:block;margin-bottom:.55rem}
+label,.label-like{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);display:block;margin-bottom:.55rem}
 input,select,textarea{
-  width:100%;padding:.7rem 0 .75rem;border:none;border-bottom:1px solid var(--line);
+  width:100%;padding:.7rem 0 .75rem;border:none;border-bottom:1.5px solid var(--line);
   background:transparent;font-family:var(--font-sans), Jost, sans-serif;font-size:1rem;color:var(--ink);
   transition:border-color .3s;outline:none;border-radius:0;min-height:44px;
 }
@@ -431,28 +431,86 @@ input::placeholder,textarea::placeholder{color:#c4b49a}
 }
 .resa-cats button{
   font-family:var(--font-sans), Jost, sans-serif;
-  font-size:.72rem;letter-spacing:.08em;color:var(--ink-soft);
-  background:transparent;border:1px solid var(--line);padding:.55rem .9rem;
-  cursor:pointer;transition:border-color .25s, color .25s, background .25s;
+  font-size:.72rem;letter-spacing:.08em;color:var(--ink);
+  background:var(--creme);border:1.5px solid var(--line);padding:.55rem .9rem;
+  cursor:pointer;min-height:44px;
+  transition:border-color .2s, color .2s, background .2s, box-shadow .2s;
+}
+.resa-cats button:hover{
+  border-color:var(--or);color:var(--or-fonce);background:#fff;
 }
 .resa-cats button.is-on,.resa-pills button.is-on{
-  color:var(--or-fonce);border-color:var(--or-fonce);background:rgba(184,149,74,.08);
+  color:#fff;border-color:var(--or-fonce);background:var(--or-fonce);
+  box-shadow:0 4px 12px rgba(143,113,48,.28);
 }
-.resa-choices{display:grid;gap:.35rem}
-.resa-choices.compact{grid-template-columns:1fr 1fr;gap:.35rem .9rem}
+.resa-cats button.is-on:hover,.resa-pills button.is-on:hover{
+  color:#fff;border-color:var(--ink);background:var(--ink);
+}
+.resa-choices{display:grid;gap:.55rem}
+.resa-choices.compact{grid-template-columns:1fr 1fr;gap:.55rem}
 .resa-choice{
-  display:flex;align-items:baseline;gap:.8rem;padding:.7rem .15rem;
-  border-bottom:1px solid rgba(143,113,48,.12);cursor:pointer;
+  position:relative;
+  display:flex;align-items:center;gap:.85rem;
+  padding:.85rem 1rem .85rem .9rem;
+  border:1.5px solid var(--line);
+  background:var(--creme);
+  cursor:pointer;
+  min-height:52px;
+  transition:border-color .2s, background .2s, box-shadow .2s;
 }
-.resa-choice input{position:absolute;opacity:0;pointer-events:none}
-.resa-choice .n{flex:1;font-family:var(--font-serif), 'Cormorant Garamond', Georgia, serif;font-size:1.12rem;color:var(--ink)}
-.resa-choice .p{font-family:var(--font-serif), 'Cormorant Garamond', Georgia, serif;color:var(--or-fonce);white-space:nowrap}
-.resa-choice.is-on .n{color:var(--or-fonce)}
+.resa-choice:hover{
+  border-color:var(--or);
+  background:#fff;
+}
+.resa-choice::before{
+  content:"";
+  flex:none;
+  width:20px;height:20px;
+  border:1.5px solid rgba(143,113,48,.45);
+  border-radius:50%;
+  background:#fff;
+  box-shadow:inset 0 0 0 0 var(--or-fonce);
+  transition:border-color .2s, background .2s, box-shadow .2s;
+}
+.resa-choice.is-on{
+  border-color:var(--or-fonce);
+  background:rgba(184,149,74,.18);
+  box-shadow:inset 3px 0 0 var(--or-fonce), 0 6px 16px rgba(143,113,48,.12);
+}
+.resa-choice.is-on:hover{
+  border-color:var(--or-fonce);
+  background:rgba(184,149,74,.24);
+}
+.resa-choice.is-on::before{
+  border-color:var(--or-fonce);
+  background:var(--or-fonce) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23fffdf8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M3.2 8.4l3.1 3.2 6.5-7'/%3E%3C/svg%3E") center/12px no-repeat;
+}
+.resa-choice input{position:absolute;opacity:0;width:1px;height:1px;margin:0;pointer-events:none}
+.resa-choice:focus-within{
+  outline:2px solid var(--or-fonce);
+  outline-offset:2px;
+}
+.resa-choice .n{
+  flex:1;
+  font-family:var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+  font-size:1.12rem;color:var(--ink);line-height:1.25;
+}
+.resa-choice .p{
+  font-family:var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+  font-size:1.12rem;color:var(--or-fonce);white-space:nowrap;font-weight:500;
+}
+.resa-choice.is-on .n{color:var(--ink);font-weight:600}
+.resa-choice.is-on .p{color:var(--or-fonce);font-weight:600}
+.resa-pick-hint{margin:.15rem 0 .85rem}
 .resa-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:.15rem}
 .resa-pills button{
   font-family:var(--font-sans), Jost, sans-serif;font-size:.78rem;
-  background:transparent;border:1px solid var(--line);color:var(--ink-soft);
+  background:var(--creme);border:1.5px solid var(--line);color:var(--ink);
   padding:.55rem .85rem;cursor:pointer;min-height:44px;
+  transition:border-color .2s, color .2s, background .2s, box-shadow .2s;
+}
+.resa-pills button:hover{
+  border-color:var(--or);color:var(--or-fonce);background:#fff;
 }
 .field-hint{font-size:.78rem;color:#9a8467;margin-top:.55rem}
 .field-err{font-size:.82rem;color:#8f4a30;margin-top:.7rem}
