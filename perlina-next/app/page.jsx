@@ -5,6 +5,7 @@ import FadeIn from "../components/gsap/FadeIn";
 import Hero from "../components/Hero";
 import MosaicFigure from "../components/MosaicFigure";
 import CountKhz from "../components/CountKhz";
+import BeforeAfter from "../components/BeforeAfter";
 
 const GoldDefs = () => (
   <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
@@ -170,19 +171,16 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.12}>
             <div className="aa-frame">
-              <figure className="aa-card inner graphic">
-                <Image
-                  src="/images/aa-visage.jpg"
-                  alt="Avant / après soin visage radiofréquence INDIBA"
-                  width={1000}
-                  height={1237}
-                  sizes="(max-width:639px) 100vw, (max-width:1023px) 90vw, 50vw"
-                />
-                <figcaption>
-                  <span className="t">Soin visage radiofréquence</span>
-                  <span className="s">Après 1 séance</span>
-                </figcaption>
-              </figure>
+              <BeforeAfter
+                featured
+                avant="/images/aa/visage-avant.jpg"
+                apres="/images/aa/visage-apres.jpg"
+                title="Soin visage radiofréquence"
+                subtitle="Après 1 séance"
+                altAvant="Visage avant le soin radiofréquence INDIBA"
+                altApres="Visage après une séance de radiofréquence INDIBA"
+                sizes="(max-width:639px) 50vw, (max-width:1023px) 45vw, 28vw"
+              />
             </div>
           </FadeIn>
         </div>
@@ -194,19 +192,42 @@ export default function Home() {
             Des résultats <em>visibles</em>
           </SectionTitle>
           <div className="aa-grid">
-            {[
-              { src: "/images/aa-ventre.jpg", w: 1000, h: 999, t: "Remodelage du ventre", s: "Après 1 séance", alt: "Avant / après remodelage du ventre INDIBA", graphic: true },
-              { src: "/images/aa-silhouette.jpg", w: 1000, h: 1247, t: "Ventre, fesses & dos", s: "Après 3 séances", alt: "Avant / après traitement ventre, fesses et dos INDIBA", graphic: true },
-              { src: "/images/crops/manucure-tab.jpg", w: 1100, h: 1375, t: "Onglerie Perlina", s: "Semi-permanent", alt: "Manucure semi-permanent réalisée à l'institut" },
-            ].map((a, i) => (
-              <FadeIn as="figure" className={`aa-card${a.graphic ? " graphic" : " photo"}`} key={a.src} delay={i * 0.1}>
-                <Image src={a.src} alt={a.alt} width={a.w} height={a.h} sizes="(max-width:639px) 100vw, (max-width:1023px) 50vw, 33vw" />
-                <figcaption>
-                  <span className="t">{a.t}</span>
-                  <span className="s">{a.s}</span>
-                </figcaption>
-              </FadeIn>
-            ))}
+            <FadeIn delay={0}>
+              <BeforeAfter
+                avant="/images/aa/ventre-avant.jpg"
+                apres="/images/aa/ventre-apres.jpg"
+                title="Remodelage du ventre"
+                subtitle="Après 1 séance"
+                altAvant="Ventre avant le soin INDIBA"
+                altApres="Ventre après une séance INDIBA"
+                sizes="(max-width:639px) 50vw, (max-width:1023px) 25vw, 16vw"
+              />
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <BeforeAfter
+                portrait
+                avant="/images/aa/silhouette-avant.jpg"
+                apres="/images/aa/silhouette-apres.jpg"
+                title="Ventre, fesses & dos"
+                subtitle="Après 3 séances"
+                altAvant="Silhouette avant le traitement INDIBA"
+                altApres="Silhouette après trois séances INDIBA"
+                sizes="(max-width:639px) 50vw, (max-width:1023px) 25vw, 16vw"
+              />
+            </FadeIn>
+            <FadeIn as="figure" className="aa-card photo" delay={0.2}>
+              <Image
+                src="/images/crops/manucure-tab.jpg"
+                alt="Manucure semi-permanent réalisée à l'institut"
+                width={1100}
+                height={1375}
+                sizes="(max-width:639px) 100vw, (max-width:1023px) 50vw, 33vw"
+              />
+              <figcaption>
+                <span className="t">Onglerie Perlina</span>
+                <span className="s">Semi-permanent</span>
+              </figcaption>
+            </FadeIn>
           </div>
           <p className="aa-note">
             Photos INDIBA® Deep Beauty France et réalisations de l&apos;institut. Les résultats peuvent varier selon les
