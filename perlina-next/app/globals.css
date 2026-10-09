@@ -216,6 +216,10 @@ a[href^="tel:"]{white-space:nowrap}
   padding-bottom:4rem;position:relative;
 }
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,7vw,6rem);align-items:center;width:100%}
+.hero-grid--solo{grid-template-columns:1fr;max-width:38rem}
+.hero--solo{align-items:center;text-align:left}
+.hero--solo .hero-copy{display:flex;flex-direction:column;gap:0}
+.hero-orn{margin-top:clamp(2rem,5vw,2.8rem);justify-content:flex-start}
 .hero-loc{letter-spacing:.38em;text-transform:uppercase;font-size:.68rem;color:var(--or-fonce);margin-bottom:1.8rem}
 .hero h1{
   font-size:clamp(3.1rem,12vw,7.2rem);line-height:.92;font-weight:400;letter-spacing:-.035em;
@@ -394,9 +398,10 @@ a[href^="tel:"]{white-space:nowrap}
 }
 
 /* ===== CARTES UNIVERS ===== */
-.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:3.8rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:3.8rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .cards > *{display:flex;min-height:100%;border-right:1px solid var(--line)}
-.cards > *:last-child{border-right:none}
+.cards > *:nth-child(3n){border-right:none}
+.cards > *:nth-child(n+4){border-top:1px solid var(--line)}
 .card{
   background:transparent;border-right:none;width:100%;
   padding:2.8rem 1.7rem 2.4rem;text-align:left;
@@ -664,6 +669,9 @@ label em{font-style:normal;letter-spacing:.08em;text-transform:none;color:#9a846
 /* ===== RESPONSIVE — tablette ===== */
 @media(max-width:1023px){
   .cards{grid-template-columns:1fr 1fr}
+  .cards > *:nth-child(3n){border-right:1px solid var(--line)}
+  .cards > *:nth-child(2n){border-right:none}
+  .cards > *:nth-child(n+3){border-top:1px solid var(--line)}
   .foot-grid{grid-template-columns:1fr 1fr}
   .mosaic{grid-template-columns:1fr 1fr}
   .m-a,.m-b,.m-c,.m-d{grid-column:auto;min-height:0;aspect-ratio:4/5}

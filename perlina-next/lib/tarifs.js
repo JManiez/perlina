@@ -10,8 +10,7 @@ function fromPrice(items) {
   return Math.min(...items.filter((i) => !i.skipFrom).map((i) => i.price));
 }
 
-/** Catalogue complet (y compris sections volontairement masquées sur le site). */
-export const ALL_CATALOG = [
+export const CATALOG = [
   {
     id: "onglerie",
     icon: "nail",
@@ -77,12 +76,15 @@ export const ALL_CATALOG = [
   },
   {
     id: "indiba",
-    hidden: true,
     icon: "etoile",
     nav: "INDIBA®",
     title: "INDIBA® EDNA PRO MAX",
     desc:
       "La technologie anti-âge nouvelle génération. Radiofréquence brevetée 448 kHz pour la régénération cellulaire et la fermeté cutanée.",
+    home: {
+      title: "INDIBA® Deep Beauty",
+      desc: "Radiofréquence 448 kHz — visage et corps, résultats visibles dès les premières séances.",
+    },
     items: [
       { name: "Soin visage", duration: "30 min", price: 100 },
       {
@@ -105,7 +107,6 @@ export const ALL_CATALOG = [
   },
   {
     id: "massages",
-    hidden: true,
     icon: "lotus",
     nav: "Massages",
     title: "Massages — spa aux huiles chaudes",
@@ -121,21 +122,35 @@ export const ALL_CATALOG = [
     ],
   },
   {
-    id: "avenir",
-    hidden: true,
-    icon: "etoile",
-    nav: "À venir",
-    title: "À venir",
+    id: "browlift",
+    icon: "regard",
+    nav: "Browlift",
+    title: "Browlift",
     items: [
-      { name: "Browlift — simple", price: 55 },
-      { name: "Browlift — avec teinture hybride", price: 70 },
-      { name: "Lash lift coréen — simple", price: 55 },
-      { name: "Lash lift coréen — avec teinture", price: 70 },
+      { name: "Simple", price: 55, formName: "Browlift — simple" },
+      {
+        name: "Avec teinture hybride",
+        price: 70,
+        formName: "Browlift — avec teinture hybride",
+      },
+    ],
+  },
+  {
+    id: "lash-lift",
+    icon: "regard",
+    nav: "Lash lift",
+    title: "Lash lift coréen",
+    items: [
+      { name: "Simple", price: 55, formName: "Lash lift coréen — simple" },
+      {
+        name: "Avec teinture",
+        price: 70,
+        formName: "Lash lift coréen — avec teinture",
+      },
     ],
   },
   {
     id: "epilation-femme",
-    hidden: true,
     icon: "regard",
     nav: "Épilations femme",
     title: "Épilations — Femme",
@@ -157,7 +172,6 @@ export const ALL_CATALOG = [
   },
   {
     id: "epilation-homme",
-    hidden: true,
     icon: "feuille",
     nav: "Épilations homme",
     title: "Épilations — Homme",
@@ -176,21 +190,17 @@ export const ALL_CATALOG = [
   },
 ];
 
-/** Sections affichées sur /soins et l'accueil. */
-export const CATALOG = ALL_CATALOG.filter((cat) => !cat.hidden);
-
 CATALOG.forEach((cat) => {
   cat.from = fromPrice(cat.items);
-});
-
-ALL_CATALOG.forEach((cat) => {
-  if (!cat.from) cat.from = fromPrice(cat.items);
 });
 
 function formName(cat, item) {
   if (item.formName) return item.formName;
   if (cat.formId === "epi-f") return `Épilation femme — ${item.name.toLowerCase()}`;
   if (cat.formId === "epi-h") return `Épilation homme — ${item.name.toLowerCase()}`;
+  if (cat.id === "browlift" || cat.id === "lash-lift") {
+    return item.formName || `${cat.title} — ${item.name.toLowerCase()}`;
+  }
   if (item.duration) return `${item.name} — ${item.duration}`;
   if (item.detail) return `${item.name} — ${item.detail}`;
   return item.name;
@@ -209,10 +219,42 @@ export const FORM_CATS = [
   { id: "autre", label: "Autre", services: [{ name: "Autre / je ne sais pas encore", price: "" }] },
 ];
 
-export const HOME_CARDS = CATALOG.map((cat) => ({
-  id: cat.id,
-  title: cat.home.title,
-  desc: cat.home.desc,
-  prix: des(cat.from),
-  href: `/soins#${cat.id}`,
-}));
+const byId = Object.fromEntries(CATALOG.map((c) => [c.id, c]));
+
+export const HOME_CARDS = [
+  {
+    id: "soins",
+    title: byId.soins.home.title,
+    desc: byId.soins.home.desc,
+    prix: des(byId.soins.from),
+    href: "/soins#soins",
+  },
+  {
+    id: "onglerie",
+    title: byId.onglerie.home.title,
+    desc: byId.onglerie.home.desc,
+    prix: des(byId.onglerie.from),
+    href: "/soins#onglerie",
+  },
+  {
+    id: "indiba",
+    title: byId.indiba.home.title,
+    desc: byId.indiba.home.desc,
+    prix: des(byId.indiba.from),
+    href: "/soins#indiba",
+  },
+  {
+    id: "massages",
+    title: byId.massages.home.title,
+    desc: byId.massages.home.desc,
+    prix: des(byId.massages.from),
+    href: "/soins#massages",
+  },
+  {
+    id: "epilation",
+    title: "Épilations femme & homme",
+    desc: "Sourcils, visage, corps : une épilation douce et précise pour toutes et tous.",
+    prix: des(Math.min(byId["epilation-femme"].from, byId["epilation-homme"].from)),
+    href: "/soins#epilation-femme",
+  },
+];
