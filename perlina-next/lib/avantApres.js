@@ -11,6 +11,13 @@ export const MONTAGE_GROUPS = [
         subtitle: "Après la 1re séance",
       },
       {
+        src: "/images/avant-apres/indiba-visage-apres-2-seances.jpg",
+        width: 1369,
+        height: 1149,
+        alt: "Comparatif avant et après INDIBA Deep Beauty visage, résultat après 2 séances",
+        subtitle: "Après 2 séances",
+      },
+      {
         src: "/images/avant-apres/indiba-visage-apres-3e-seance.jpg",
         width: 1254,
         height: 1254,

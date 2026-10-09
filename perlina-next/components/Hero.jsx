@@ -4,8 +4,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "./gsap/register";
-import Silhouette from "./Silhouette";
-
 export default function Hero() {
   const root = useRef(null);
 
@@ -20,7 +18,7 @@ export default function Hero() {
           .from(".hero .byl, .hero .tagline", { opacity: 0, y: 16, duration: 0.7, stagger: 0.08 }, "-=0.55")
           .from(".hero .lead", { opacity: 0, y: 18, duration: 0.75 }, "-=0.4")
           .from(".hero .btn-row a", { opacity: 0, y: 14, duration: 0.6, stagger: 0.1 }, "-=0.4")
-          .from(".silhouette", { opacity: 0, scale: 0.94, duration: 1.2 }, 0.25)
+          .from(".hero-orn", { opacity: 0, y: 12, duration: 0.8 }, "-=0.35")
           .from(".scroll-cue", { opacity: 0, duration: 0.8 }, "-=0.2");
       });
     },
@@ -28,9 +26,9 @@ export default function Hero() {
   );
 
   return (
-    <div className="hero" ref={root}>
-      <div className="container hero-grid">
-        <div>
+    <div className="hero hero--solo" ref={root}>
+      <div className="container hero-grid hero-grid--solo">
+        <div className="hero-copy">
           <p className="hero-loc">La Grande-Motte · Institut de beauté</p>
           <p className="kicker">Votre institut</p>
           <h1>Perlina</h1>
@@ -48,8 +46,12 @@ export default function Hero() {
               La carte des soins
             </Link>
           </div>
+          <div className="hero-orn orn" aria-hidden="true">
+            <span className="pearl sm" />
+            <span className="pearl" />
+            <span className="pearl sm" />
+          </div>
         </div>
-        <Silhouette />
       </div>
       <div className="scroll-cue" aria-hidden="true">
         Défiler
