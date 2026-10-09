@@ -2,8 +2,9 @@
 
 import { useMemo, useState } from "react";
 import { FORM_CATS } from "../lib/tarifs";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "../lib/contact";
 
-const TEL = "+33672567489";
+const TEL = CONTACT_PHONE_E164;
 const CATS = FORM_CATS;
 
 const MOMENTS = ["Indifférent", "Matin", "Midi", "Après-midi"];
@@ -206,7 +207,7 @@ export default function ReservationForm() {
               required
               inputMode="tel"
               autoComplete="tel"
-              placeholder="06 72 56 74 89"
+              placeholder={CONTACT_PHONE_DISPLAY}
             />
           </div>
         </div>
