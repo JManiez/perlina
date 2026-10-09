@@ -1,6 +1,7 @@
 import Link from "next/link";
 import SectionTitle from "../../components/SectionTitle";
 import FadeIn from "../../components/gsap/FadeIn";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "../../lib/contact";
 
 export const metadata = { title: "Contact" };
 
@@ -29,8 +30,8 @@ export default function Contact() {
               <div className="info-line">
                 <b>Téléphone</b>
                 <span>
-                  <a href="tel:+33672567489" className="link-u">
-                    06 72 56 74 89
+                  <a href={`tel:${CONTACT_PHONE_E164}`} className="link-u">
+                    {CONTACT_PHONE_DISPLAY}
                   </a>
                 </span>
               </div>
@@ -44,17 +45,17 @@ export default function Contact() {
                 <span className="pearl sm" /> Prendre rendez-vous
               </h3>
               <p style={{ fontSize: ".95rem" }}>
-                Par téléphone ou SMS au 06 72 56 74 89, ou via notre{" "}
+                Par téléphone ou SMS au {CONTACT_PHONE_DISPLAY}, ou via notre{" "}
                 <Link href="/reservation" className="link-u" style={{ color: "var(--or-fonce)" }}>
                   formulaire de demande de rendez-vous
                 </Link>
                 . Nous vous confirmons votre créneau au plus vite.
               </p>
               <div className="btn-row" style={{ marginTop: "1.6rem" }}>
-                <a className="btn btn-or" href="tel:+33672567489">
+                <a className="btn btn-or" href={`tel:${CONTACT_PHONE_E164}`}>
                   Appeler l&apos;institut
                 </a>
-                <a className="btn btn-ghost" href="sms:+33672567489">
+                <a className="btn btn-ghost" href={`sms:${CONTACT_PHONE_E164}`}>
                   Envoyer un SMS
                 </a>
               </div>

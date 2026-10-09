@@ -6,6 +6,8 @@ import Hero from "../components/Hero";
 import MosaicFigure from "../components/MosaicFigure";
 import CountKhz from "../components/CountKhz";
 import BeforeAfter from "../components/BeforeAfter";
+import MontageCard from "../components/MontageCard";
+import { indibaMontage1, indibaMontage3, lashMontages } from "../lib/avantApres";
 import { HOME_CARDS } from "../lib/tarifs";
 
 const GoldDefs = () => (
@@ -136,15 +138,15 @@ export default function Home() {
           </FadeIn>
           <FadeIn delay={0.12}>
             <div className="aa-frame">
-              <BeforeAfter
+              <MontageCard
                 featured
-                avant="/images/aa/visage-avant.jpg"
-                apres="/images/aa/visage-apres.jpg"
+                src={indibaMontage1.src}
+                width={indibaMontage1.width}
+                height={indibaMontage1.height}
+                alt={indibaMontage1.alt}
                 title="Soin visage radiofréquence"
-                subtitle="Après 1 séance"
-                altAvant="Visage avant le soin radiofréquence INDIBA"
-                altApres="Visage après une séance de radiofréquence INDIBA"
-                sizes="(max-width:639px) 50vw, (max-width:1023px) 45vw, 28vw"
+                subtitle={indibaMontage1.subtitle}
+                sizes="(max-width:639px) 100vw, (max-width:1023px) 45vw, 28vw"
               />
             </div>
           </FadeIn>
@@ -169,29 +171,26 @@ export default function Home() {
               />
             </FadeIn>
             <FadeIn delay={0.1}>
-              <BeforeAfter
-                portrait
-                avant="/images/aa/silhouette-avant.jpg"
-                apres="/images/aa/silhouette-apres.jpg"
-                title="Ventre, fesses & dos"
-                subtitle="Après 3 séances"
-                altAvant="Silhouette avant le traitement INDIBA"
-                altApres="Silhouette après trois séances INDIBA"
+              <MontageCard
+                src={indibaMontage3.src}
+                width={indibaMontage3.width}
+                height={indibaMontage3.height}
+                alt={indibaMontage3.alt}
+                title="Soin visage radiofréquence"
+                subtitle={indibaMontage3.subtitle}
                 sizes="(max-width:639px) 50vw, (max-width:1023px) 25vw, 16vw"
               />
             </FadeIn>
-            <FadeIn as="figure" className="aa-card photo" delay={0.2}>
-              <Image
-                src="/images/crops/manucure-tab.jpg"
-                alt="Manucure semi-permanent réalisée à l'institut"
-                width={1100}
-                height={1375}
-                sizes="(max-width:639px) 100vw, (max-width:1023px) 50vw, 33vw"
+            <FadeIn delay={0.2}>
+              <MontageCard
+                src={lashMontages[0].src}
+                width={lashMontages[0].width}
+                height={lashMontages[0].height}
+                alt={lashMontages[0].alt}
+                title="Lash lift coréen"
+                subtitle={lashMontages[0].subtitle}
+                sizes="(max-width:639px) 50vw, (max-width:1023px) 25vw, 16vw"
               />
-              <figcaption>
-                <span className="t">Onglerie Perlina</span>
-                <span className="s">Semi-permanent</span>
-              </figcaption>
             </FadeIn>
           </div>
           <p className="aa-note">

@@ -350,6 +350,48 @@ a[href^="tel:"]{white-space:nowrap}
 .aa-shot:first-child .aa-tag{left:.75rem}
 .aa-shot:last-child .aa-tag{right:.75rem}
 .aa-note{font-size:.74rem;color:#9a8467;margin-top:1.8rem}
+.aa-card.montage .montage-btn{
+  display:block;width:100%;padding:0;border:none;background:var(--ivoire-2);cursor:pointer;
+}
+.aa-card.montage .montage-img{width:100%;height:auto;display:block;object-fit:contain}
+.aa-card.montage.featured .montage-img{max-height:min(520px,70vh);margin:0 auto}
+.ba-section{margin-top:clamp(3.4rem,7vw,5.2rem);scroll-margin-top:calc(var(--header-h) + 3.2rem)}
+.ba-head{margin-bottom:2.4rem}
+.ba-group + .ba-group{margin-top:2.8rem}
+.ba-group-title{
+  font-family:var(--font-serif), 'Cormorant Garamond', Georgia, serif;
+  font-size:clamp(1.35rem,2.6vw,1.75rem);font-weight:400;color:var(--ink);
+  margin-bottom:1.2rem;padding-bottom:.65rem;border-bottom:1px solid rgba(143,113,48,.18);
+}
+.ba-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--gap)}
+.ba-card{
+  display:block;width:100%;padding:0;border:1px solid var(--line);background:var(--blanc);
+  box-shadow:var(--shadow-sm);cursor:pointer;text-align:left;
+  transition:transform .45s cubic-bezier(.22,1,.36,1), box-shadow .45s ease;
+}
+.ba-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+.ba-card:focus-visible{outline:1px solid var(--or-fonce);outline-offset:3px}
+.ba-card img{width:100%;height:auto;display:block;object-fit:contain;background:#ece8e2}
+.ba-lightbox{
+  position:fixed;inset:0;z-index:400;display:flex;align-items:center;justify-content:center;
+  padding:max(1rem, env(safe-area-inset-top)) var(--gutter) max(1rem, env(safe-area-inset-bottom));
+  background:rgba(61,50,40,.72);backdrop-filter:blur(6px);
+}
+.ba-lightbox-inner{
+  margin:0;max-width:min(960px,100%);max-height:min(90vh,100%);
+  border:1px solid rgba(228,212,168,.45);background:var(--blanc);box-shadow:var(--shadow);
+  overflow:auto;
+}
+.ba-lightbox-inner img{width:100%;height:auto;display:block;object-fit:contain}
+.ba-lightbox-inner figcaption{
+  padding:.85rem 1rem;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;
+  text-align:center;color:var(--or-fonce);border-top:1px solid var(--line);
+}
+.ba-lightbox-close{
+  position:fixed;top:max(1rem, env(safe-area-inset-top));right:max(1rem, env(safe-area-inset-right));
+  width:44px;height:44px;border:1px solid rgba(255,253,248,.35);border-radius:50%;
+  background:rgba(61,50,40,.5);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;
+}
 
 /* ===== CARTES UNIVERS ===== */
 .cards{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:3.8rem;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -625,6 +667,7 @@ label em{font-style:normal;letter-spacing:.08em;text-transform:none;color:#9a846
   .foot-grid{grid-template-columns:1fr 1fr}
   .mosaic{grid-template-columns:1fr 1fr}
   .m-a,.m-b,.m-c,.m-d{grid-column:auto;min-height:0;aspect-ratio:4/5}
+  .ba-grid{grid-template-columns:1fr}
   .aa-grid{grid-template-columns:1fr 1fr}
   .aa-grid > :last-child{grid-column:1/-1;max-width:28rem;justify-self:center;width:100%}
   .apropos-grid,.indiba-grid{grid-template-columns:1fr;gap:2.4rem}
