@@ -4,6 +4,7 @@
 
 @import "../styles/tokens.css";
 @import "../styles/main.css";
+@import "../styles/premium.css";
 
 @theme inline {
   --color-background: var(--ivoire);

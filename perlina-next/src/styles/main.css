@@ -35,7 +35,7 @@ section + section{padding-top:0}
 .section-lead{max-width:38rem;margin-top:1.6rem;font-size:1.05rem}
 .t-center{text-align:center}
 .t-center .section-lead{margin-inline:auto}
-.split-mask{display:block;overflow:hidden}
+.split-mask{display:block;overflow:visible}
 .split-inner{display:block}
 
 /* ===== ORNEMENT ===== */
@@ -681,7 +681,17 @@ label em{font-style:normal;letter-spacing:.08em;text-transform:none;color:var(--
   .silhouette{justify-self:center;max-width:min(100%,320px)}
   .silhouette svg{max-width:260px}
   .svc-list.two{grid-template-columns:1fr}
-  .svc-nav{display:none}
+  .svc-nav{
+    display:flex;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    gap:.35rem;
+    padding-bottom:.35rem;
+    scrollbar-width:none;
+  }
+  .svc-nav::-webkit-scrollbar{display:none}
+  .svc-nav a{flex:none;white-space:nowrap;font-size:.62rem;padding:.55rem .75rem}
   .cards{grid-template-columns:1fr;border:none}
   .cards > *{border-right:none;border-top:1px solid var(--line)}
   .cards > *:last-child{border-bottom:1px solid var(--line)}

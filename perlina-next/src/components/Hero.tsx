@@ -11,16 +11,17 @@ export default function Hero() {
     () => {
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
-        tl.from(".hero-loc", { opacity: 0, y: 16, duration: 0.8 })
-          .from(".hero .kicker", { opacity: 0, y: 18, duration: 0.7 }, "-=0.4")
-          .from(".hero h1", { opacity: 0, y: 40, filter: "blur(10px)", duration: 1.15 }, "-=0.35")
-          .from(".hero .byl, .hero .tagline", { opacity: 0, y: 16, duration: 0.7, stagger: 0.08 }, "-=0.55")
-          .from(".hero .lead", { opacity: 0, y: 18, duration: 0.75 }, "-=0.4")
-          .from(".hero .btn-row a", { opacity: 0, y: 14, duration: 0.6, stagger: 0.1 }, "-=0.4")
-          .from(".hero-orn", { opacity: 0, y: 12, duration: 0.8 }, "-=0.35")
-          .from(".scroll-cue", { opacity: 0, duration: 0.8 }, "-=0.2");
+        const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
+        tl.from(".hero-loc", { opacity: 0, y: 12, duration: 1.1 })
+          .from(".hero .kicker", { opacity: 0, y: 14, duration: 1 }, "-=0.65")
+          .from(".hero h1", { opacity: 0, y: 28, filter: "blur(6px)", duration: 1.35 }, "-=0.55")
+          .from(".hero .byl, .hero .tagline", { opacity: 0, y: 12, duration: 0.95, stagger: 0.1 }, "-=0.75")
+          .from(".hero .lead", { opacity: 0, y: 14, duration: 1 }, "-=0.6")
+          .from(".hero .btn-row a", { opacity: 0, y: 10, duration: 0.85, stagger: 0.12 }, "-=0.55")
+          .from(".hero-orn", { opacity: 0, y: 8, duration: 1 }, "-=0.5")
+          .from(".scroll-cue", { opacity: 0, duration: 1.1 }, "-=0.4");
       });
+      return () => mm.revert();
     },
     { scope: root }
   );

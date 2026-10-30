@@ -1,0 +1,299 @@
+/**
+ * Couche « institut haut de gamme » — palette crème / or / nacre conservée.
+ * Air, grille, typo et motion sobres.
+ */
+
+:root {
+  --section: clamp(4.5rem, 9vw, 8.5rem);
+  --gutter: clamp(1.25rem, 4.2vw, 2.75rem);
+  --radius: 3px;
+  --shadow: 0 20px 56px rgba(var(--rgb-ink), 0.06);
+  --shadow-sm: 0 10px 32px rgba(var(--rgb-ink), 0.05);
+  --header-solid-bg: rgba(246, 241, 232, 0.92);
+  --foot-mark-opacity: 0.045;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --section: 3.75rem;
+    --gutter: 1.25rem;
+  }
+}
+
+body {
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+}
+
+section {
+  padding-block: var(--section);
+}
+
+.section-lead {
+  max-width: 42rem;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  letter-spacing: 0.38em;
+  font-size: 0.7rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-size: clamp(2.35rem, 4.8vw, 3.85rem);
+  letter-spacing: -0.025em;
+}
+
+/* Header & navigation */
+.site-header.is-solid {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-desktop a {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+}
+
+.menu-overlay {
+  background: rgba(251, 247, 239, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.menu-overlay a {
+  font-size: clamp(2rem, 8vw, 2.85rem);
+}
+
+/* Hero */
+.hero {
+  min-height: min(100svh, 920px);
+  padding-bottom: 5rem;
+}
+
+.hero p.lead {
+  font-size: 1.12rem;
+  line-height: 1.85;
+  max-width: 34rem;
+}
+
+.scroll-cue i {
+  animation-duration: 3s;
+}
+
+/* Cartes univers */
+.cards {
+  border: 1px solid var(--line-soft);
+  background: var(--blanc);
+  box-shadow: var(--shadow-sm);
+}
+
+.card {
+  padding: 2.5rem 2rem 2.2rem;
+  transition:
+    background var(--duration-ui) var(--ease-out-expo),
+    transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.card:hover {
+  background: var(--card-hover-bg);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.65rem;
+}
+
+.card .prix {
+  font-size: 1.28rem;
+}
+
+/* Mosaïque */
+.mosaic {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.mosaic figure {
+  border-radius: var(--radius);
+  min-height: 280px;
+}
+
+.m-a,
+.m-b {
+  min-height: clamp(320px, 38vw, 480px);
+}
+
+.m-c,
+.m-d {
+  min-height: clamp(220px, 24vw, 320px);
+}
+
+/* Soins */
+.page-head {
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.svc-nav {
+  gap: 0.5rem 1.25rem;
+  padding: 0.85rem 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.svc-nav a {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  padding: 0.35rem 0;
+  opacity: 0.85;
+  transition: opacity var(--duration-fast), color var(--duration-fast);
+}
+
+.svc-nav a:hover {
+  opacity: 1;
+  color: var(--or-fonce);
+}
+
+.svc-cat {
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.svc-cat:first-of-type {
+  padding-top: 1.5rem;
+}
+
+.svc-cat h3 {
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+  margin-bottom: 1.25rem;
+}
+
+.svc-row {
+  padding: 1.05rem 0;
+}
+
+.svc-row .n {
+  font-size: 1.15rem;
+}
+
+.svc-row .p {
+  font-size: 1.15rem;
+}
+
+/* Galerie avant/après */
+.ba-grid {
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.ba-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform var(--duration-slow) var(--ease-out-expo),
+    box-shadow var(--duration-slow) var(--ease-out-expo);
+}
+
+.ba-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.ba-card img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+/* Réservation */
+.resa-card {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.resa-cats {
+  gap: 0.5rem;
+}
+
+.resa-cats button,
+.resa-pills button {
+  transition:
+    border-color var(--duration-ui),
+    background var(--duration-ui),
+    color var(--duration-ui);
+}
+
+.resa-choice {
+  transition:
+    border-color var(--duration-ui),
+    background var(--duration-ui),
+    box-shadow var(--duration-ui);
+}
+
+.resa-choice.is-on {
+  box-shadow: 0 8px 24px var(--resa-choice-shadow);
+}
+
+/* Footer */
+.foot-mark {
+  opacity: var(--foot-mark-opacity);
+  font-size: clamp(6rem, 18vw, 13rem);
+}
+
+.site-footer {
+  padding-top: clamp(3.5rem, 8vw, 5rem);
+}
+
+/* Boutons — micro-interaction plus lente */
+.btn {
+  transition:
+    color 0.55s var(--ease-out-expo),
+    border-color 0.45s var(--ease-out-expo),
+    transform 0.45s var(--ease-out-expo);
+}
+
+.btn-or:hover,
+.btn-ghost:hover {
+  transform: translateY(-1px);
+}
+
+.btn-or::before,
+.btn-ghost::before {
+  transition: transform 0.65s var(--ease-out-expo);
+}
+
+/* INDIBA band */
+.indiba {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+/* Contact */
+.contact-grid {
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.info-bloc {
+  padding-bottom: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .card {
+    padding: 2rem 0 1.85rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .section-title {
+    font-size: clamp(2.05rem, 8.5vw, 2.65rem);
+  }
+
+  .mosaic figure {
+    min-height: 0;
+  }
+}
