@@ -520,8 +520,8 @@ main > section:last-of-type {
   padding-bottom: clamp(2rem, 4vw, 3rem);
 }
 
-.aa-card .montage-frame,
-.aa-grid .aa-pair {
+.aa-grid .aa-pair,
+.aa-grid .montage-frame {
   aspect-ratio: 4 / 5;
 }
 
@@ -530,11 +530,23 @@ main > section:last-of-type {
   background: var(--blanc);
 }
 
+.aa-card .t,
+.aa-compare .t {
+  font-size: 1.15rem;
+}
+
 .aa-card .s,
 .aa-compare .s {
   color: var(--ink-soft);
-  letter-spacing: 0.12em;
-  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  font-size: max(0.875rem, 14px);
+}
+
+.ba-lightbox-inner figcaption {
+  color: #fffdf8;
+  font-size: max(0.875rem, 14px);
+  background: linear-gradient(180deg, transparent, rgba(28, 24, 20, 0.92));
+  padding: 1rem 1.25rem;
 }
 
 .ba-card figcaption,
