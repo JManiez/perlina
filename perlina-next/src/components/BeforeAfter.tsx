@@ -1,0 +1,60 @@
+import Image, { type StaticImageData } from "next/image";
+
+type BeforeAfterProps = {
+  avant: string | StaticImageData;
+  apres: string | StaticImageData;
+  title: string;
+  subtitle: string;
+  altAvant: string;
+  altApres: string;
+  sizes: string;
+  featured?: boolean;
+  portrait?: boolean;
+  priority?: boolean;
+};
+
+export default function BeforeAfter({
+  avant,
+  apres,
+  title,
+  subtitle,
+  altAvant,
+  altApres,
+  sizes,
+  featured = false,
+  portrait = false,
+  priority = false,
+}: BeforeAfterProps) {
+  return (
+    <figure className={`aa-compare${featured ? " featured" : ""}${portrait ? " portrait" : ""}`}>
+      <div className="aa-pair">
+        <div className="aa-shot">
+          <Image
+            src={avant}
+            alt={altAvant}
+            fill
+            sizes={sizes}
+            priority={priority}
+            style={{ objectFit: "cover" }}
+          />
+          <span className="aa-tag">Avant</span>
+        </div>
+        <div className="aa-shot">
+          <Image
+            src={apres}
+            alt={altApres}
+            fill
+            sizes={sizes}
+            priority={priority}
+            style={{ objectFit: "cover" }}
+          />
+          <span className="aa-tag">Après</span>
+        </div>
+      </div>
+      <figcaption>
+        <span className="t">{title}</span>
+        <span className="s">{subtitle}</span>
+      </figcaption>
+    </figure>
+  );
+}

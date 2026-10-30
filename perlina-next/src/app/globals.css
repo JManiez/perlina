@@ -1,0 +1,24 @@
+@import "tailwindcss/theme" layer(theme);
+@import "tailwindcss/utilities" layer(utilities);
+@import "tw-animate-css";
+
+@import "../styles/tokens.css";
+@import "../styles/main.css";
+@import "../styles/premium.css";
+
+@theme inline {
+  --color-background: var(--ivoire);
+  --color-foreground: var(--ink);
+  --color-primary: var(--or-fonce);
+  --color-primary-foreground: var(--color-pure-white);
+  --color-muted-foreground: var(--color-muted);
+  --color-border: var(--line);
+  --color-accent: var(--creme);
+  --color-accent-foreground: var(--ink);
+  --color-ring: var(--or-fonce);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --font-sans: var(--font-sans);
+  --font-serif: var(--font-serif);
+}
