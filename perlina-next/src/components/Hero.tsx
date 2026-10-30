@@ -40,27 +40,29 @@ export default function Hero() {
         />
         <div className="hero-scrim" />
       </div>
-      <div className="container hero-grid hero-grid--solo">
-        <div className="hero-copy">
-          <p className="hero-loc">La Grande-Motte · Institut de beauté</p>
-          <p className="kicker">Votre institut</p>
-          <h1>Perlina</h1>
-          <div className="byl">— BY L —</div>
-          <span className="script tagline">Révélez votre beauté naturelle</span>
-          <p className="lead">
-            Un écrin de douceur au bord de la Méditerranée, où le savoir-faire esthétique rencontre la technologie{" "}
-            <strong>INDIBA® Deep Beauty</strong>.
-          </p>
-          <div className="btn-row hero-cta">
-            <CtaButton href="/reservation">Prendre rendez-vous</CtaButton>
-            <CtaButton href="/soins" variant="ghost">
-              La carte des soins
-            </CtaButton>
-          </div>
-          <div className="hero-orn orn" aria-hidden="true">
-            <span className="pearl sm" />
-            <span className="pearl" />
-            <span className="pearl sm" />
+      <div className="hero-body">
+        <div className="container hero-grid hero-grid--solo">
+          <div className="hero-copy">
+            <p className="hero-loc">La Grande-Motte · Institut de beauté</p>
+            <p className="kicker">Votre institut</p>
+            <h1>Perlina</h1>
+            <div className="byl">— BY L —</div>
+            <span className="script tagline">Révélez votre beauté naturelle</span>
+            <p className="lead">
+              Un écrin de douceur au bord de la Méditerranée, où le savoir-faire esthétique rencontre la technologie{" "}
+              <strong>INDIBA® Deep Beauty</strong>.
+            </p>
+            <div className="hero-orn orn hero-orn--above-cta" aria-hidden="true">
+              <span className="pearl sm" />
+              <span className="pearl" />
+              <span className="pearl sm" />
+            </div>
+            <div className="btn-row hero-cta">
+              <CtaButton href="/reservation">Prendre rendez-vous</CtaButton>
+              <CtaButton href="/soins" variant="ghost">
+                La carte des soins
+              </CtaButton>
+            </div>
           </div>
         </div>
       </div>
