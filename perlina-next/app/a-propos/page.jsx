@@ -1,7 +1,9 @@
 import SectionTitle from "../../components/SectionTitle";
 import FadeIn from "../../components/gsap/FadeIn";
 
-export const metadata = { title: "À propos" };
+import { pageMetadata } from "../../lib/site";
+
+export const metadata = pageMetadata("/a-propos", { title: "À propos" });
 
 export default function APropos() {
   return (

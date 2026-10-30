@@ -3,7 +3,9 @@ import SectionTitle from "../../components/SectionTitle";
 import FadeIn from "../../components/gsap/FadeIn";
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "../../lib/contact";
 
-export const metadata = { title: "Contact" };
+import { pageMetadata } from "../../lib/site";
+
+export const metadata = pageMetadata("/contact", { title: "Contact" });
 
 export default function Contact() {
   return (

@@ -2,7 +2,9 @@ import SectionTitle from "../../components/SectionTitle";
 import ReservationForm from "../../components/ReservationForm";
 import FadeIn from "../../components/gsap/FadeIn";
 
-export const metadata = { title: "Demande de rendez-vous" };
+import { pageMetadata } from "../../lib/site";
+
+export const metadata = pageMetadata("/reservation", { title: "Demande de rendez-vous" });
 
 export default function Reservation() {
   return (

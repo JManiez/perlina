@@ -4,8 +4,7 @@ import Footer from "../components/Footer";
 import SmoothScroll from "../components/SmoothScroll";
 import { CONTACT_PHONE_DISPLAY } from "../lib/contact";
 import { buildLocalBusinessJsonLd } from "../lib/jsonLd";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://perlinabyl.fr";
+import { SITE_URL } from "../lib/site";
 
 export const viewport = {
   width: "device-width",
@@ -14,7 +13,7 @@ export const viewport = {
 };
 
 export const metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Perlina By L — Institut de beauté · La Grande-Motte",
     template: "%s · Perlina By L",
@@ -25,13 +24,13 @@ export const metadata = {
     description: "Venez découvrir la technologie INDIBA® Deep Beauty et révéler votre beauté naturelle.",
     type: "website",
     locale: "fr_FR",
-    url: siteUrl,
+    url: SITE_URL,
     siteName: "Perlina By L",
     images: [{ url: "/images/salon-1.jpg", width: 1200, height: 1600, alt: "Perlina By L" }],
   },
 };
 
-const localBusinessJsonLd = buildLocalBusinessJsonLd(siteUrl);
+const localBusinessJsonLd = buildLocalBusinessJsonLd(SITE_URL);
 
 export default function RootLayout({ children }) {
   return (
