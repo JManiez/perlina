@@ -11,6 +11,7 @@ const links = [
   { href: "/a-propos", label: "À propos" },
   { href: "/soins", label: "Nos soins" },
   { href: "/contact", label: "Contact" },
+  { href: "/reservation", label: "Réservation" },
 ];
 
 export default function Header() {
@@ -52,11 +53,12 @@ export default function Header() {
       if (!open || !nav) return;
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.fromTo(
-          nav.querySelectorAll("a"),
-          { opacity: 0, y: 22 },
-          { opacity: 1, y: 0, duration: 0.65, stagger: 0.06, ease: "power3.out" }
-        );
+        gsap.from(nav.querySelectorAll("a"), {
+          y: 18,
+          duration: 0.55,
+          stagger: 0.05,
+          ease: "power3.out",
+        });
       });
       return () => mm.revert();
     },

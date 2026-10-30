@@ -12,7 +12,7 @@ export default function HomeUniversSection() {
       <SectionTitle eyebrow="Nos univers" center pearls>
         Une carte complète de <em>soins</em>
       </SectionTitle>
-      <div className="cards">
+      <div className="cards cards--univers">
         {HOME_CARDS.map((u, i) => (
           <FadeIn key={u.id} delay={i * 0.08}>
             <Link href={u.href} className="card">
