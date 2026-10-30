@@ -6,7 +6,9 @@ import { MONTAGE_GROUPS } from "../../lib/avantApres";
 import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "../../lib/contact";
 import { CATALOG, eur } from "../../lib/tarifs";
 
-export const metadata = { title: "Nos soins & tarifs" };
+import { pageMetadata } from "../../lib/site";
+
+export const metadata = pageMetadata("/soins", { title: "Nos soins & tarifs" });
 
 const Row = ({ n, d, p }) => (
   <div className="svc-row">

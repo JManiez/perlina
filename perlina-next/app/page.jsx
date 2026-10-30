@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { pageMetadata } from "../lib/site";
+
+export const metadata = pageMetadata("/");
 import SectionTitle from "../components/SectionTitle";
 import FadeIn from "../components/gsap/FadeIn";
 import Hero from "../components/Hero";
