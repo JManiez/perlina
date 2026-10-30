@@ -1,9 +1,9 @@
 "use client";
 
-import Link from "next/link";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { gsap } from "./gsap/register";
+import Button from "./ui/Button";
 export default function Hero() {
   const root = useRef(null);
 
@@ -39,12 +39,10 @@ export default function Hero() {
             <strong>INDIBA® Deep Beauty</strong>.
           </p>
           <div className="btn-row">
-            <Link className="btn btn-or" href="/reservation">
-              Prendre rendez-vous
-            </Link>
-            <Link className="btn btn-ghost" href="/soins">
+            <Button href="/reservation">Prendre rendez-vous</Button>
+            <Button href="/soins" variant="ghost">
               La carte des soins
-            </Link>
+            </Button>
           </div>
           <div className="hero-orn orn" aria-hidden="true">
             <span className="pearl sm" />

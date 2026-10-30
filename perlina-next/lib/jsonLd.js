@@ -1,5 +1,5 @@
 import { CONTACT_PHONE_E164 } from "./contact";
-import { CATALOG, eur } from "./tarifs";
+import { CATALOG, eur } from "../content/catalog.js";
 
 function offerLabel(cat, item) {
   if (item.duration) return `${item.name} — ${item.duration}`;
