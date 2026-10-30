@@ -192,8 +192,8 @@ a[href^="tel:"]{white-space:nowrap}
   padding-top:calc(var(--header-h) + 1.5rem);
   padding-bottom:4rem;position:relative;
 }
+/* Immersive layout (min-height, flex) : premium.css — ne pas remettre min-height:unset ici */
 .hero--immersive{
-  min-height:unset;
   align-items:stretch;
 }
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(2.5rem,7vw,6rem);align-items:center;width:100%}
