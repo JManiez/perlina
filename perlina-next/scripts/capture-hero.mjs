@@ -8,6 +8,31 @@ const widths = [1440, 1280, 1024, 390];
 
 mkdirSync(outDir, { recursive: true });
 
+async function waitHeroReady(page) {
+  await page.waitForFunction(
+    () => {
+      const hero = document.querySelector(".hero--immersive");
+      const lead = document.querySelector(".hero .lead");
+      const btn = document.querySelector(".hero-cta a");
+      if (!hero || !lead || !btn) return false;
+
+      const rect = hero.getBoundingClientRect();
+      const minH = parseFloat(getComputedStyle(hero).minHeight) || 0;
+      if (rect.height < Math.min(minH, window.innerHeight * 0.5) || rect.top > 8) return false;
+
+      const leadOpacity = parseFloat(getComputedStyle(lead).opacity);
+      const btnOpacity = parseFloat(getComputedStyle(btn).opacity);
+      if (leadOpacity < 0.98 || btnOpacity < 0.98) return false;
+
+      const leadBox = lead.getBoundingClientRect();
+      const btnBox = btn.getBoundingClientRect();
+      return leadBox.height > 8 && btnBox.height > 8 && lead.textContent.trim().length > 20;
+    },
+    { timeout: 20000 }
+  );
+  await page.waitForTimeout(400);
+}
+
 const browser = await chromium.launch();
 
 for (const width of widths) {
@@ -24,24 +49,8 @@ for (const width of widths) {
     document.body.scrollTop = 0;
   });
 
-  const hero = page.locator(".hero--immersive");
-  await hero.waitFor({ state: "visible", timeout: 15000 });
-  await page.locator(".hero--immersive h1").waitFor({ state: "visible" });
-
-  const heroOk = await page.evaluate(() => {
-    const el = document.querySelector(".hero--immersive");
-    if (!el) return false;
-    const rect = el.getBoundingClientRect();
-    const minH = parseFloat(getComputedStyle(el).minHeight) || 0;
-    return rect.height >= Math.min(minH, window.innerHeight * 0.5) && rect.top <= 8;
-  });
-  if (!heroOk) {
-    throw new Error(
-      `Hero layout invalid at ${width}px — rebuild app and restart \`next start\` before capture.`
-    );
-  }
-
-  await page.waitForTimeout(1200);
+  await page.locator(".hero--immersive").waitFor({ state: "visible", timeout: 15000 });
+  await waitHeroReady(page);
 
   const name = width === 390 ? "home-hero-390.png" : `home-hero-${width}.png`;
   await page.screenshot({ path: join(outDir, name), fullPage: false });
