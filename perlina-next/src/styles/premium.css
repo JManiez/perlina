@@ -164,6 +164,12 @@ section {
     text-align: center;
   }
 
+  .hero--immersive .btn-ghost {
+    color: var(--ink);
+    border-color: var(--ink);
+    background: rgba(255, 253, 248, 0.72);
+  }
+
   .scroll-cue--hero {
     display: none;
   }
