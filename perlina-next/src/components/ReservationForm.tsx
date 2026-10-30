@@ -1,0 +1,246 @@
+"use client";
+
+import { type FormEvent, useMemo, useState } from "react";
+import { FORM_CATS } from "../lib/tarifs";
+import { CONTACT_PHONE_DISPLAY, CONTACT_PHONE_E164 } from "../lib/contact";
+
+type ReservationPayload = {
+  soin: string;
+  date: string;
+  moment: string;
+  nom: string;
+  tel: string;
+  remarque?: string;
+};
+
+const TEL = CONTACT_PHONE_E164;
+const CATS = FORM_CATS;
+
+const MOMENTS = ["Indifférent", "Matin", "Midi", "Après-midi"];
+
+function todayISO() {
+  const d = new Date();
+  const off = d.getTimezoneOffset();
+  const local = new Date(d.getTime() - off * 60000);
+  return local.toISOString().slice(0, 10);
+}
+
+function formatDate(iso: string) {
+  const [y, m, d] = iso.split("-").map(Number);
+  return new Date(y, m - 1, d).toLocaleDateString("fr-FR", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
+}
+
+function smsHref(msg: string) {
+  const body = encodeURIComponent(msg);
+  const ios = typeof navigator !== "undefined" && /iPhone|iPad|iPod/i.test(navigator.userAgent);
+  return ios ? `sms:${TEL}&body=${body}` : `sms:${TEL}?body=${body}`;
+}
+
+export default function ReservationForm() {
+  const minDate = useMemo(() => todayISO(), []);
+  const [cat, setCat] = useState("onglerie");
+  const [soin, setSoin] = useState("");
+  const [moment, setMoment] = useState("Indifférent");
+  const [tried, setTried] = useState(false);
+  const [data, setData] = useState<ReservationPayload | null>(null);
+
+  const current = CATS.find((c) => c.id === cat) || CATS[0];
+
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const f = new FormData(e.currentTarget);
+    const remarque = String(f.get("remarque") || "").trim();
+    const payload: ReservationPayload = {
+      soin,
+      moment,
+      date: String(f.get("date") || ""),
+      nom: String(f.get("nom") || "").trim(),
+      tel: String(f.get("tel") || "").trim(),
+      ...(remarque ? { remarque } : {}),
+    };
+    setTried(true);
+    if (!payload.soin || !payload.date || !payload.nom || !payload.tel) return;
+    setData(payload);
+  }
+
+  if (data) {
+    const msg =
+      `Bonjour, je souhaite prendre rendez-vous chez Perlina By L.\n` +
+      `Soin : ${data.soin}\n` +
+      `Date souhaitée : ${formatDate(data.date)}${data.moment ? ` (${data.moment})` : ""}\n` +
+      `Nom : ${data.nom}\n` +
+      `Tél : ${data.tel}\n` +
+      (data.remarque ? `Remarque : ${data.remarque}\n` : "");
+
+    return (
+      <div className="resa-card resa-confirm">
+        <p className="eyebrow">Étape 2 sur 2</p>
+        <h3>Votre demande est prête</h3>
+        <p className="resa-lead">
+          Vérifiez le récapitulatif, puis envoyez-le par SMS. Lorie vous confirme le créneau personnellement.
+        </p>
+        <dl className="resa-recap">
+          <div>
+            <dt>Soin</dt>
+            <dd>{data.soin}</dd>
+          </div>
+          <div>
+            <dt>Quand</dt>
+            <dd>
+              {formatDate(data.date)}
+              {data.moment && data.moment !== "Indifférent" ? ` · ${data.moment}` : ""}
+            </dd>
+          </div>
+          <div>
+            <dt>Contact</dt>
+            <dd>
+              {data.nom}
+              <br />
+              {data.tel}
+            </dd>
+          </div>
+          {data.remarque ? (
+            <div>
+              <dt>Remarque</dt>
+              <dd>« {data.remarque} »</dd>
+            </div>
+          ) : null}
+        </dl>
+        <div className="btn-row resa-actions">
+          <a className="btn btn-or" href={smsHref(msg)}>
+            Envoyer par SMS
+          </a>
+          <a className="btn btn-ghost" href={`tel:${TEL}`}>
+            Appeler l&apos;institut
+          </a>
+        </div>
+        <button type="button" className="resa-back" onClick={() => setData(null)}>
+          Modifier ma demande
+        </button>
+      </div>
+    );
+  }
+
+  return (
+    <form className="resa-form" onSubmit={handleSubmit} noValidate>
+      <section className="resa-block">
+        <header className="resa-block-h">
+          <span>01</span>
+          <h3>Le soin</h3>
+        </header>
+        <div className="resa-cats" role="tablist" aria-label="Univers de soins">
+          {CATS.map((c) => (
+            <button
+              key={c.id}
+              type="button"
+              role="tab"
+              aria-selected={cat === c.id}
+              className={cat === c.id ? "is-on" : ""}
+              onClick={() => {
+                setCat(c.id);
+                setSoin(c.id === "autre" ? c.services[0].name : "");
+              }}
+            >
+              {c.label}
+            </button>
+          ))}
+        </div>
+        {current.hint ? <p className="field-hint">{current.hint}</p> : null}
+        {!soin ? <p className="field-hint resa-pick-hint">Sélectionnez le soin souhaité.</p> : null}
+        <div className={`resa-choices${current.services.length > 5 ? " compact" : ""}`}>
+          {current.services.map((s) => (
+            <label key={s.name} className={`resa-choice${soin === s.name ? " is-on" : ""}`}>
+              <input
+                type="radio"
+                name="soin"
+                value={s.name}
+                checked={soin === s.name}
+                onChange={() => setSoin(s.name)}
+                required
+              />
+              <span className="n">{s.name}</span>
+              {s.price ? <span className="p">{s.price}</span> : null}
+            </label>
+          ))}
+        </div>
+        {tried && !soin ? <p className="field-err">Choisissez un soin pour continuer.</p> : null}
+      </section>
+
+      <section className="resa-block">
+        <header className="resa-block-h">
+          <span>02</span>
+          <h3>Le moment</h3>
+        </header>
+        <div className="f2">
+          <div className="field">
+            <label htmlFor="r-date">Date souhaitée</label>
+            <input id="r-date" name="date" type="date" required min={minDate} defaultValue={minDate} />
+            <p className="field-hint">Un souhait : Lorie confirmera le créneau disponible.</p>
+          </div>
+          <div className="field">
+            <span className="label-like" id="r-moment-label">
+              Moment préféré
+            </span>
+            <div className="resa-pills" role="group" aria-labelledby="r-moment-label">
+              {MOMENTS.map((m) => (
+                <button
+                  key={m}
+                  type="button"
+                  className={moment === m ? "is-on" : ""}
+                  onClick={() => setMoment(m)}
+                >
+                  {m}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="resa-block">
+        <header className="resa-block-h">
+          <span>03</span>
+          <h3>Vos coordonnées</h3>
+        </header>
+        <div className="f2">
+          <div className="field">
+            <label htmlFor="r-nom">Prénom &amp; nom</label>
+            <input id="r-nom" name="nom" required autoComplete="name" placeholder="Camille Dupont" />
+          </div>
+          <div className="field">
+            <label htmlFor="r-tel">Téléphone</label>
+            <input
+              id="r-tel"
+              name="tel"
+              type="tel"
+              required
+              inputMode="tel"
+              autoComplete="tel"
+              placeholder={CONTACT_PHONE_DISPLAY}
+            />
+          </div>
+        </div>
+        <div className="field">
+          <label htmlFor="r-rem">Remarque <em>(optionnel)</em></label>
+          <textarea
+            id="r-rem"
+            name="remarque"
+            rows={3}
+            placeholder="Première visite, grossesse, précisions sur le soin…"
+          />
+        </div>
+      </section>
+
+      <div className="resa-submit">
+        <button className="btn btn-or" type="submit">
+          Voir le récapitulatif
+        </button>
+        <p className="field-hint">Aucun paiement en ligne — confirmation par SMS ou téléphone.</p>
+      </div>
+    </form>
+  );
+}
