@@ -16,6 +16,7 @@ export default function HomeInstitutSection() {
           cap="Votre espace d'accueil"
           desk="wide"
           sizes="(max-width:639px) 100vw, (max-width:1023px) 50vw, 58vw"
+          priority
         />
         <MosaicFigure
           className="m-b"

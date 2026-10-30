@@ -68,10 +68,67 @@ section {
   font-size: clamp(2rem, 8vw, 2.85rem);
 }
 
-/* Hero */
-.hero {
-  min-height: min(100svh, 920px);
-  padding-bottom: 5rem;
+/* Hero immersif */
+.hero--immersive {
+  position: relative;
+  isolation: isolate;
+  min-height: min(92svh, 880px);
+  align-items: flex-end;
+  padding-top: calc(var(--header-h) + 0.75rem);
+  padding-bottom: 2.5rem;
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-photo {
+  object-fit: cover;
+  object-position: center 28%;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    rgba(251, 247, 239, 0.55) 0%,
+    rgba(251, 247, 239, 0.82) 42%,
+    rgba(246, 241, 232, 0.96) 100%
+  );
+}
+
+.hero--immersive .hero-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 36rem;
+}
+
+.hero--immersive h1 {
+  -webkit-text-fill-color: unset;
+  color: var(--ink);
+  background: none;
+  text-shadow: 0 1px 0 rgba(255, 253, 248, 0.4);
+}
+
+.hero--immersive .lead {
+  color: var(--ink-soft);
+}
+
+.hero--immersive .hero-loc,
+.hero--immersive .kicker {
+  color: var(--or-fonce);
+}
+
+.hero-cta {
+  margin-top: 1.75rem;
+}
+
+.scroll-cue--hero {
+  z-index: 1;
 }
 
 .hero p.lead {
@@ -82,6 +139,55 @@ section {
 
 .scroll-cue i {
   animation-duration: 3s;
+}
+
+@media (max-width: 639px) {
+  .hero--immersive {
+    min-height: max(88svh, 640px);
+    padding-bottom: 1.75rem;
+  }
+
+  .hero--immersive .hero-grid--solo {
+    max-width: none;
+  }
+
+  .hero--immersive h1 {
+    font-size: clamp(2.75rem, 14vw, 3.6rem);
+  }
+
+  .hero--immersive .script.tagline {
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .scroll-cue--hero {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero--immersive {
+    min-height: min(88svh, 820px);
+    align-items: center;
+  }
+
+  .hero-scrim {
+    background: linear-gradient(
+      105deg,
+      rgba(246, 241, 232, 0.94) 0%,
+      rgba(246, 241, 232, 0.78) 38%,
+      rgba(246, 241, 232, 0.35) 62%,
+      rgba(246, 241, 232, 0.15) 100%
+    );
+  }
+
+  .hero--immersive .hero-grid--solo {
+    max-width: 34rem;
+  }
 }
 
 /* Cartes univers */
@@ -121,6 +227,23 @@ section {
 .mosaic figure {
   border-radius: var(--radius);
   min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mosaic .img-clip {
+  position: relative;
+  inset: auto;
+  flex: 1;
+  min-height: 240px;
+  aspect-ratio: 4 / 5;
+}
+
+.mosaic .img-clip picture,
+.mosaic .img-clip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .m-a,
@@ -158,6 +281,30 @@ section {
   color: var(--or-fonce);
 }
 
+.svc-sep {
+  height: 1px;
+  border: none;
+  margin: clamp(2.5rem, 5vw, 3.75rem) 0 clamp(1.5rem, 3vw, 2rem);
+  background: linear-gradient(90deg, transparent, var(--or-clair), transparent);
+  opacity: 0.85;
+}
+
+.svc-cat-visual {
+  margin: 0 0 1.75rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  max-width: 560px;
+}
+
+.svc-cat-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: min(360px, 42vw);
+}
+
 .svc-cat {
   padding-top: clamp(2.5rem, 5vw, 3.5rem);
 }
@@ -181,6 +328,19 @@ section {
 
 .svc-row .p {
   font-size: 1.15rem;
+  color: var(--or-fonce);
+  font-weight: 500;
+}
+
+.svc-row .d,
+.cat-desc,
+.field-hint,
+.aa-note {
+  color: var(--ink-soft);
+}
+
+.card .prix {
+  color: var(--or-fonce);
 }
 
 /* Galerie avant/après */

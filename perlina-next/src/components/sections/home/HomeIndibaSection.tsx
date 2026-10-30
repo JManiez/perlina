@@ -56,6 +56,7 @@ export default function HomeIndibaSection() {
           <div className="aa-frame">
             <MontageCard
               featured
+              priority
               src={indibaMontage1.src}
               width={indibaMontage1.width}
               height={indibaMontage1.height}

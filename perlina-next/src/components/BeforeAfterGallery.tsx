@@ -48,24 +48,31 @@ export default function BeforeAfterGallery({ groups, id = "avant-apres" }: Befor
             <div className="ba-group" key={group.title}>
               <h3 className="ba-group-title">{group.title}</h3>
               <div className={`ba-grid${group.items.length === 2 ? " ba-grid--2" : ""}`}>
-                {group.items.map((item, i) => (
-                  <button
-                    key={item.src}
-                    type="button"
-                    className="ba-card"
-                    onClick={() => setOpen({ ...item, group: group.title })}
-                    aria-label={`Agrandir : ${item.alt}`}
-                  >
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      width={item.width}
-                      height={item.height}
-                      sizes="(max-width:639px) 100vw, (max-width:1023px) 50vw, 480px"
-                      loading={gi === 0 && i === 0 ? "eager" : "lazy"}
-                    />
-                  </button>
-                ))}
+                {group.items.map((item, i) => {
+                  const priority = gi === 0 && i < 3;
+                  return (
+                    <button
+                      key={item.src}
+                      type="button"
+                      className="ba-card"
+                      onClick={() => setOpen({ ...item, group: group.title })}
+                      aria-label={`Agrandir : ${item.alt}`}
+                    >
+                      <span className="ba-card-frame" style={{ aspectRatio: `${item.width} / ${item.height}` }}>
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          width={item.width}
+                          height={item.height}
+                          sizes="(max-width:639px) 100vw, (max-width:1023px) 50vw, 480px"
+                          priority={priority}
+                          loading={priority ? "eager" : "lazy"}
+                          className="ba-card-img"
+                        />
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
             </div>
           ))}

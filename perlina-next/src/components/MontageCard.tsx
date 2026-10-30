@@ -12,6 +12,7 @@ type MontageCardProps = {
   subtitle?: string;
   sizes: string;
   featured?: boolean;
+  priority?: boolean;
 };
 
 export default function MontageCard({
@@ -23,6 +24,7 @@ export default function MontageCard({
   subtitle,
   sizes,
   featured = false,
+  priority = false,
 }: MontageCardProps) {
   const [open, setOpen] = useState(false);
   const close = useCallback(() => setOpen(false), []);
@@ -40,19 +42,24 @@ export default function MontageCard({
     };
   }, [open, close]);
 
+  const aspect = `${width} / ${height}`;
+
   return (
     <>
       <figure className={`aa-card montage${featured ? " featured" : ""}`}>
         <button type="button" className="montage-btn" onClick={() => setOpen(true)} aria-label={`Agrandir : ${alt}`}>
-          <Image
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            sizes={sizes}
-            loading="lazy"
-            className="montage-img"
-          />
+          <span className="montage-frame" style={{ aspectRatio: aspect }}>
+            <Image
+              src={src}
+              alt={alt}
+              width={width}
+              height={height}
+              sizes={sizes}
+              priority={priority}
+              loading={priority ? "eager" : "lazy"}
+              className="montage-img"
+            />
+          </span>
         </button>
         <figcaption>
           <span className="t">{title}</span>

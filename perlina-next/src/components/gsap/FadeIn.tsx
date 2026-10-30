@@ -15,13 +15,13 @@ type FadeInProps = {
   y?: number;
 };
 
-/** Entrée au scroll — sans masquer le contenu (pas d’opacity 0). */
+/** Entrée au scroll — translation uniquement (pas de blur : préserve les images). */
 export default function FadeIn({
   children,
   as = "div",
   className = "",
   delay = 0,
-  y = 28,
+  y = 24,
 }: FadeInProps) {
   const divRef = useRef<HTMLDivElement>(null);
   const figureRef = useRef<HTMLElement>(null);
@@ -33,17 +33,15 @@ export default function FadeIn({
       if (!el) return;
       const mm = gsap.matchMedia();
       mm.add("(prefers-reduced-motion: reduce)", () => {
-        gsap.set(el, { clearProps: "transform,filter" });
+        gsap.set(el, { clearProps: "transform" });
       });
       mm.add("(prefers-reduced-motion: no-preference)", () => {
         gsap.from(el, {
           y,
-          filter: "blur(6px)",
-          duration: 1.45,
+          duration: 1.35,
           delay,
           ease: "power2.out",
           scrollTrigger: { trigger: el, start: "top 92%", once: true },
-          clearProps: "filter",
         });
       });
       return () => mm.revert();
