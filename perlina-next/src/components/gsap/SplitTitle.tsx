@@ -10,6 +10,7 @@ type SplitTitleProps = {
   className?: string;
 };
 
+/** Titre visible immédiatement ; léger glissement au scroll (pas de masque vide). */
 export default function SplitTitle({ children, className = "section-title" }: SplitTitleProps) {
   const ref = useRef<HTMLHeadingElement>(null);
 
@@ -22,16 +23,12 @@ export default function SplitTitle({ children, className = "section-title" }: Sp
         gsap.set(inner, { yPercent: 0 });
       });
       mm.add("(prefers-reduced-motion: no-preference)", () => {
-        gsap.fromTo(
-          inner,
-          { yPercent: 115 },
-          {
-            yPercent: 0,
-            duration: 1.25,
-            ease: "power4.out",
-            scrollTrigger: { trigger: ref.current, start: "top 88%", once: true },
-          }
-        );
+        gsap.from(inner, {
+          yPercent: 12,
+          duration: 1.35,
+          ease: "power2.out",
+          scrollTrigger: { trigger: ref.current, start: "top 92%", once: true },
+        });
       });
       return () => mm.revert();
     },

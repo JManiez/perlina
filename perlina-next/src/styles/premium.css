@@ -1,0 +1,538 @@
+/**
+ * Couche « institut haut de gamme » — palette crème / or / nacre conservée.
+ * Air, grille, typo et motion sobres.
+ */
+
+:root {
+  --section: clamp(4.5rem, 9vw, 8.5rem);
+  --gutter: clamp(1.25rem, 4.2vw, 2.75rem);
+  --radius: 3px;
+  --shadow: 0 20px 56px rgba(var(--rgb-ink), 0.06);
+  --shadow-sm: 0 10px 32px rgba(var(--rgb-ink), 0.05);
+  --header-solid-bg: rgba(246, 241, 232, 0.92);
+  --foot-mark-opacity: 0.045;
+}
+
+@media (max-width: 639px) {
+  :root {
+    --section: 3.75rem;
+    --gutter: 1.25rem;
+  }
+}
+
+body {
+  font-size: 1.02rem;
+  letter-spacing: 0.01em;
+}
+
+section {
+  padding-block: var(--section);
+}
+
+.section-lead {
+  max-width: 42rem;
+  font-size: 1.08rem;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+
+.eyebrow {
+  letter-spacing: 0.38em;
+  font-size: 0.7rem;
+  margin-bottom: 1.25rem;
+}
+
+.section-title {
+  font-size: clamp(2.35rem, 4.8vw, 3.85rem);
+  letter-spacing: -0.025em;
+}
+
+/* Header & navigation */
+.site-header.is-solid {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.nav-desktop a {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+}
+
+.menu-overlay {
+  background: rgba(251, 247, 239, 0.97);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.menu-overlay a {
+  font-size: clamp(2rem, 8vw, 2.85rem);
+}
+
+/* Hero immersif */
+.hero--immersive {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  min-height: min(92svh, 880px);
+  padding-top: calc(var(--header-h) + clamp(1.25rem, 3.5vh, 2.25rem));
+  padding-bottom: clamp(4.25rem, 8vh, 5.25rem);
+  overflow: hidden;
+}
+
+.hero-body {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex: 0 1 auto;
+  width: 100%;
+  margin: 0;
+}
+
+.hero-body > .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  flex: 0 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: start;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-photo {
+  object-fit: cover;
+  object-position: 72% 32%;
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    rgba(251, 247, 239, 0.55) 0%,
+    rgba(251, 247, 239, 0.82) 42%,
+    rgba(246, 241, 232, 0.96) 100%
+  );
+}
+
+.hero--immersive .hero-copy {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  width: min(100%, 36rem);
+  max-width: 36rem;
+  padding: clamp(1.25rem, 2.5vw, 1.85rem);
+  background: var(--creme);
+  border: 1px solid var(--line-soft);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hero--immersive .hero-copy .lead,
+.hero--immersive .hero-copy .hero-cta,
+.hero--immersive .hero-copy .hero-orn {
+  opacity: 1;
+}
+
+.hero--immersive h1 {
+  -webkit-text-fill-color: unset;
+  color: var(--ink);
+  background: none;
+  text-shadow: none;
+}
+
+.hero--immersive .lead {
+  color: var(--ink-soft);
+}
+
+.hero--immersive .hero-loc,
+.hero--immersive .kicker {
+  color: var(--or-fonce);
+}
+
+.hero-orn--above-cta {
+  margin-top: 1.35rem;
+  margin-bottom: 0.25rem;
+}
+
+.hero-cta {
+  position: relative;
+  z-index: 3;
+  margin-top: 1.25rem;
+  margin-bottom: 0;
+  isolation: isolate;
+}
+
+.hero--immersive .btn-ghost {
+  color: var(--ink);
+  border-color: var(--or-fonce);
+  background: rgba(255, 253, 248, 0.92);
+}
+
+.scroll-cue--hero {
+  position: absolute;
+  left: 50%;
+  bottom: max(1.15rem, env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+  margin: 0;
+}
+
+.hero p.lead {
+  font-size: 1.12rem;
+  line-height: 1.85;
+  max-width: 34rem;
+}
+
+.scroll-cue i {
+  animation-duration: 3s;
+}
+
+@media (max-width: 639px) {
+  .hero--immersive {
+    min-height: max(88svh, 640px);
+    padding-bottom: 1.75rem;
+  }
+
+  .hero--immersive .hero-grid--solo {
+    max-width: none;
+  }
+
+  .hero--immersive h1 {
+    font-size: clamp(2.75rem, 14vw, 3.6rem);
+  }
+
+  .hero--immersive .script.tagline {
+    font-size: clamp(1.35rem, 6vw, 1.75rem);
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero--immersive .btn-ghost {
+    color: var(--ink);
+    border-color: var(--ink);
+    background: rgba(255, 253, 248, 0.72);
+  }
+
+  .scroll-cue--hero {
+    display: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .hero-photo {
+    object-position: 78% 30%;
+  }
+
+  .hero-scrim {
+    background: linear-gradient(
+      100deg,
+      rgba(246, 241, 232, 0.97) 0%,
+      rgba(246, 241, 232, 0.92) 42%,
+      rgba(246, 241, 232, 0.55) 58%,
+      rgba(246, 241, 232, 0.2) 100%
+    );
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero--immersive {
+    min-height: min(88svh, 820px);
+  }
+
+  .hero--immersive .hero-grid--solo {
+    max-width: none;
+    width: 100%;
+    justify-items: start;
+  }
+
+  .hero-photo {
+    object-position: 82% 28%;
+  }
+}
+
+/* Cartes univers */
+.cards {
+  border: 1px solid var(--line-soft);
+  background: var(--blanc);
+  box-shadow: var(--shadow-sm);
+}
+
+.card {
+  padding: 2.5rem 2rem 2.2rem;
+  transition:
+    background var(--duration-ui) var(--ease-out-expo),
+    transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.card:hover {
+  background: var(--card-hover-bg);
+  transform: translateY(-3px);
+}
+
+.card h3 {
+  font-size: 1.45rem;
+  margin-bottom: 0.65rem;
+}
+
+.card .prix {
+  font-size: 1.28rem;
+}
+
+/* Mosaïque */
+.mosaic {
+  margin-top: clamp(2.5rem, 5vw, 3.5rem);
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.mosaic figure {
+  border-radius: var(--radius);
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.mosaic .img-clip {
+  position: relative;
+  inset: auto;
+  flex: 1;
+  min-height: 240px;
+  aspect-ratio: 4 / 5;
+}
+
+.mosaic .img-clip picture,
+.mosaic .img-clip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.m-a,
+.m-b {
+  min-height: clamp(320px, 38vw, 480px);
+}
+
+.m-c,
+.m-d {
+  min-height: clamp(220px, 24vw, 320px);
+}
+
+/* Soins */
+.page-head {
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.svc-nav {
+  gap: 0.5rem 1.25rem;
+  padding: 0.85rem 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.svc-nav a {
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  padding: 0.35rem 0;
+  opacity: 0.85;
+  transition: opacity var(--duration-fast), color var(--duration-fast);
+}
+
+.svc-nav a:hover {
+  opacity: 1;
+  color: var(--or-fonce);
+}
+
+.svc-sep {
+  height: 1px;
+  border: none;
+  margin: clamp(2.5rem, 5vw, 3.75rem) 0 clamp(1.5rem, 3vw, 2rem);
+  background: linear-gradient(90deg, transparent, var(--or-clair), transparent);
+  opacity: 0.85;
+}
+
+.svc-cat-visual {
+  margin: 0 0 1.75rem;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  max-width: 560px;
+}
+
+.svc-cat-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  max-height: min(360px, 42vw);
+}
+
+.svc-cat {
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+}
+
+.svc-cat:first-of-type {
+  padding-top: 1.5rem;
+}
+
+.svc-cat h3 {
+  font-size: clamp(1.65rem, 3vw, 2.1rem);
+  margin-bottom: 1.25rem;
+}
+
+.svc-row {
+  padding: 1.05rem 0;
+}
+
+.svc-row .n {
+  font-size: 1.15rem;
+}
+
+.svc-row .p {
+  font-size: 1.15rem;
+  color: var(--or-fonce);
+  font-weight: 500;
+}
+
+.svc-row .d,
+.cat-desc,
+.field-hint,
+.aa-note {
+  color: var(--ink-soft);
+}
+
+.card .prix {
+  color: var(--or-fonce);
+}
+
+/* Galerie avant/après */
+.ba-grid {
+  gap: clamp(1rem, 2.5vw, 1.75rem);
+}
+
+.ba-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition:
+    transform var(--duration-slow) var(--ease-out-expo),
+    box-shadow var(--duration-slow) var(--ease-out-expo);
+}
+
+.ba-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.ba-card img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+/* Réservation */
+.resa-card {
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.resa-cats {
+  gap: 0.5rem;
+}
+
+.resa-cats button,
+.resa-pills button {
+  transition:
+    border-color var(--duration-ui),
+    background var(--duration-ui),
+    color var(--duration-ui);
+}
+
+.resa-choice {
+  transition:
+    border-color var(--duration-ui),
+    background var(--duration-ui),
+    box-shadow var(--duration-ui);
+}
+
+.resa-choice.is-on {
+  box-shadow: 0 8px 24px var(--resa-choice-shadow);
+}
+
+/* Footer */
+.foot-mark {
+  opacity: var(--foot-mark-opacity);
+  font-size: clamp(6rem, 18vw, 13rem);
+}
+
+.site-footer {
+  padding-top: clamp(3.5rem, 8vw, 5rem);
+}
+
+/* Boutons — micro-interaction plus lente */
+.btn {
+  transition:
+    color 0.55s var(--ease-out-expo),
+    border-color 0.45s var(--ease-out-expo),
+    transform 0.45s var(--ease-out-expo);
+}
+
+.btn-or:hover,
+.btn-ghost:hover {
+  transform: translateY(-1px);
+}
+
+.btn-or::before,
+.btn-ghost::before {
+  transition: transform 0.65s var(--ease-out-expo);
+}
+
+/* INDIBA band */
+.indiba {
+  padding-block: clamp(4rem, 8vw, 7rem);
+}
+
+/* Contact */
+.contact-grid {
+  gap: clamp(2rem, 5vw, 3.5rem);
+}
+
+.info-bloc {
+  padding-bottom: 2.5rem;
+}
+
+@media (max-width: 860px) {
+  .hero {
+    min-height: auto;
+  }
+
+  .card {
+    padding: 2rem 0 1.85rem;
+  }
+}
+
+@media (max-width: 639px) {
+  .section-title {
+    font-size: clamp(2.05rem, 8.5vw, 2.65rem);
+  }
+
+  .mosaic figure {
+    min-height: 0;
+  }
+}

@@ -10,6 +10,7 @@ type BeforeAfterProps = {
   sizes: string;
   featured?: boolean;
   portrait?: boolean;
+  priority?: boolean;
 };
 
 export default function BeforeAfter({
@@ -22,16 +23,31 @@ export default function BeforeAfter({
   sizes,
   featured = false,
   portrait = false,
+  priority = false,
 }: BeforeAfterProps) {
   return (
     <figure className={`aa-compare${featured ? " featured" : ""}${portrait ? " portrait" : ""}`}>
       <div className="aa-pair">
         <div className="aa-shot">
-          <Image src={avant} alt={altAvant} fill sizes={sizes} style={{ objectFit: "cover" }} />
+          <Image
+            src={avant}
+            alt={altAvant}
+            fill
+            sizes={sizes}
+            priority={priority}
+            style={{ objectFit: "cover" }}
+          />
           <span className="aa-tag">Avant</span>
         </div>
         <div className="aa-shot">
-          <Image src={apres} alt={altApres} fill sizes={sizes} style={{ objectFit: "cover" }} />
+          <Image
+            src={apres}
+            alt={altApres}
+            fill
+            sizes={sizes}
+            priority={priority}
+            style={{ objectFit: "cover" }}
+          />
           <span className="aa-tag">Après</span>
         </div>
       </div>

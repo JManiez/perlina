@@ -14,6 +14,7 @@ export default function HomeResultsSection() {
       <div className="aa-grid">
         <FadeIn delay={0}>
           <BeforeAfter
+            priority
             avant="/images/aa/ventre-avant.jpg"
             apres="/images/aa/ventre-apres.jpg"
             title="Remodelage du ventre"
@@ -25,6 +26,7 @@ export default function HomeResultsSection() {
         </FadeIn>
         <FadeIn delay={0.1}>
           <MontageCard
+            priority
             src={indibaMontage3.src}
             width={indibaMontage3.width}
             height={indibaMontage3.height}
@@ -36,6 +38,7 @@ export default function HomeResultsSection() {
         </FadeIn>
         <FadeIn delay={0.2}>
           <MontageCard
+            priority
             src={lashMontages[0].src}
             width={lashMontages[0].width}
             height={lashMontages[0].height}
