@@ -1,7 +1,5 @@
 import SectionTitle from "../../components/SectionTitle";
 import ReservationForm from "../../components/ReservationForm";
-import FadeIn from "../../components/gsap/FadeIn";
-
 import { pageMetadata } from "../../lib/site";
 
 export const metadata = pageMetadata("/reservation", { title: "Demande de rendez-vous" });
@@ -18,15 +16,13 @@ export default function Reservation() {
         >
           Demander un <em>rendez-vous</em>
         </SectionTitle>
-        <FadeIn>
-          <div className="resa-card">
-            <ReservationForm />
-          </div>
-          <p className="notice">
-            La réservation en ligne en temps réel arrive bientôt. En attendant, chaque demande est lue et confirmée
-            par Lorie — c&apos;est aussi ça, le sur-mesure.
-          </p>
-        </FadeIn>
+        <div className="resa-card">
+          <ReservationForm />
+        </div>
+        <p className="notice">
+          La réservation en ligne en temps réel arrive bientôt. En attendant, chaque demande est lue et confirmée
+          par Lorie — c&apos;est aussi ça, le sur-mesure.
+        </p>
       </div>
     </section>
   );

@@ -42,6 +42,7 @@ function smsHref(msg: string) {
 
 export default function ReservationForm() {
   const minDate = useMemo(() => todayISO(), []);
+  const [date, setDate] = useState(minDate);
   const [cat, setCat] = useState("onglerie");
   const [soin, setSoin] = useState("");
   const [moment, setMoment] = useState("Indifférent");
@@ -178,7 +179,19 @@ export default function ReservationForm() {
         <div className="f2">
           <div className="field">
             <label htmlFor="r-date">Date souhaitée</label>
-            <input id="r-date" name="date" type="date" required min={minDate} defaultValue={minDate} />
+            <input
+              id="r-date"
+              name="date"
+              type="date"
+              required
+              min={minDate}
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              lang="fr-FR"
+            />
+            <p className="resa-date-fr" aria-live="polite">
+              {formatDate(date)}
+            </p>
             <p className="field-hint">Un souhait : Lorie confirmera le créneau disponible.</p>
           </div>
           <div className="field">
