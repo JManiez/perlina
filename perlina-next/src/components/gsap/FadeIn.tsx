@@ -49,6 +49,7 @@ export default function FadeIn({
           }
         );
       });
+      return () => mm.revert();
     },
     { scope: ref }
   );

@@ -58,6 +58,7 @@ export default function Header() {
           { opacity: 1, y: 0, duration: 0.65, stagger: 0.06, ease: "power3.out" }
         );
       });
+      return () => mm.revert();
     },
     { dependencies: [open], scope: overlay }
   );

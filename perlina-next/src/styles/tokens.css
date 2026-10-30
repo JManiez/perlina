@@ -4,9 +4,9 @@
  */
 :root {
   /* Typographie */
-  --font-script: "Great Vibes", cursive;
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-sans: "Jost", "Segoe UI", sans-serif;
+  --font-script: var(--font-script-next), "Great Vibes", cursive;
+  --font-serif: var(--font-serif-next), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-sans-next), "Segoe UI", sans-serif;
 
   /* Couleurs — palette */
   --ivoire: #f6f1e8;

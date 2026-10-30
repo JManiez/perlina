@@ -27,6 +27,7 @@ export default function CountKhz() {
           },
         });
       });
+      return () => mm.revert();
     },
     { scope: ref }
   );

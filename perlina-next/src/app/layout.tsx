@@ -1,8 +1,11 @@
 import type { ReactNode } from "react";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import SmoothScroll from "../components/SmoothScroll";
+import SmoothScroll from "../components/ui/SmoothScroll";
+import { fontClassNames } from "@/lib/fonts";
 import { CONTACT_PHONE_DISPLAY } from "../lib/contact";
 import { buildLocalBusinessJsonLd } from "../lib/jsonLd";
 import { SITE_URL } from "../lib/site";
@@ -35,25 +38,19 @@ const localBusinessJsonLd = buildLocalBusinessJsonLd(SITE_URL);
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="fr">
-      <head>
+    <html lang="fr" className={fontClassNames}>
+      <body>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Jost:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body>
         <SmoothScroll>
           <Header />
           <main>{children}</main>
           <Footer />
         </SmoothScroll>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

@@ -33,6 +33,7 @@ export default function SplitTitle({ children, className = "section-title" }: Sp
           }
         );
       });
+      return () => mm.revert();
     },
     { scope: ref }
   );

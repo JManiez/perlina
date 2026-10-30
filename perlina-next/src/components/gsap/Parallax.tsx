@@ -35,6 +35,7 @@ export default function Parallax({ children, className = "", yPercent = 12 }: Pa
           }
         );
       });
+      return () => mm.revert();
     },
     { scope: ref }
   );
